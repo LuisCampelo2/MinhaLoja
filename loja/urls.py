@@ -6,5 +6,6 @@ app_name='loja'
 
 urlpatterns = [
     path('',views.index,name='index'),
-    path('create_account',views.createAccount,name='create_account'),
+    path('create_account/',views.createAccount,name='create_account'),
+    path('login/',views.login,name='login'),
 ]
