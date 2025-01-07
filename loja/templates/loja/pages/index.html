@@ -1,11 +1,5 @@
 {% extends "loja/base.html" %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <h1>bem vindo {{user}}</h1>
 
-{% else %}
-    <a href="{% url "loja:login" %}">login</a>
-    <a href="{% url "loja:create_account" %}">Criar Conta</a>
-{% endif %}
 {% endblock content %}

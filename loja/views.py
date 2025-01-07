@@ -3,7 +3,7 @@ from django.urls import reverse
 from .forms import RegisterUser,CustomAuthenticationForm
 from django.contrib import auth
 from django.shortcuts import redirect
-
+from django.contrib.auth import logout
 
 # Create your views here.
 def index(request):
@@ -48,3 +48,7 @@ def createAccount(request):
         'form_action': form_action
     }
     return render(request,'loja/pages/create_account.html',context)
+
+def logout_view(request):
+    logout(request)
+    return redirect ('loja:index')
