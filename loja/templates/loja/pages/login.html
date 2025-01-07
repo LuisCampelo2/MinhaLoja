@@ -1,5 +1,8 @@
 {% extends "loja/base.html" %}
 {% block content %}
+<div class='navegacao'>
+    <a href="{% url "loja:create_account" %}">Criar Conta</a>
+</div>
 <div class="login">
     <form 
     class="login_form"

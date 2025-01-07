@@ -1,5 +1,16 @@
 {% extends "loja/base.html" %}
 
 {% block content %}
+{% if user.is_authenticated %}
+<div class='navegacao'>
+    <a href="{% url "loja:logout" %}">Sair da conta</a>
+</div>
+<a href="{% url "loja:logout" %}">Sair da conta</a>
+{% else %}
+<div class='navegacao'>
+    <a href="{% url "loja:login" %}">login</a>
+    <a href="{% url "loja:create_account" %}">Criar Conta</a>
+</div>
 
+{% endif %}
 {% endblock content %}

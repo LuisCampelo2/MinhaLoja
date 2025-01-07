@@ -1,0 +1,67 @@
+html,body{
+    background-color: black;
+    margin: 0; /* Remove as margens padrão */
+    padding: 0; /* Remove os preenchimentos padrão */
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center;    /* Alinha verticalmente */
+    height: 100px;          /* Altura do header (opcional) */
+    background-color: #333d47;
+}
+header a{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+
+header img {
+    width: 100%; /* A imagem ocupa toda a largura */
+    height: 100%; /* A imagem ocupa toda a altura */
+    object-fit: cover; /* Corta a imagem para preencher o espaço sem distorcer */
+}
+
+.navegacao {
+    position: fixed; /* Fixa a navegação no lugar */
+    top: 30px;
+    right: 30px;
+    
+}
+
+.navegacao a{
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.navegacao a:hover{
+    color: white;
+}
+.login{
+    justify-content: center;
+}
+.login_form {
+    color: white;
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna, empilhando-os */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 20px; /* Adiciona um pouco de espaço interno */
+    border-radius: 8px; /* Deixa os cantos arredondados */
+    gap: 10px; /* Adiciona um espaço entre os itens */
+    
+}
+
+.cadastro_cliente_form{
+    color: white;
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna, empilhando-os */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 20px; /* Adiciona um pouco de espaço interno */
+    border-radius: 8px; /* Deixa os cantos arredondados */
+    gap: 10px; /* Adiciona um espaço entre os itens */
+}

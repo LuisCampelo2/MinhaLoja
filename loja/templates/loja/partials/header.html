@@ -1,9 +1,4 @@
 {% load static %}<header>
     <a href="{% url "loja:index" %}"><img src="{% static "img/Cab_Tech_logo.jpg" %}" alt="logo_site"></a>
-    {% if user.is_authenticated %}
-        <a href="{% url "loja:logout" %}">Sair da conta</a>
-    {% else %}
-        <a href="{% url "loja:login" %}">login</a>
-        <a href="{% url "loja:create_account" %}">Criar Conta</a>
-    {% endif %}
+
 </header>
