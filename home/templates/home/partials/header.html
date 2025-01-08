@@ -1,0 +1,27 @@
+{% load static %}
+<header>
+    <div class="logo_site_container">
+        <a href="{% url 'home:index' %}"><img src="{% static '/home/img/logo_site.png' %}" class="logo_site" alt="logo_site"></a>
+    </div>
+
+    <div class="carrinho_icon_container">
+        <a href=""><img src="{% static 'home/img/transferir.png' %}" class="carrinho_icon"></a>
+    </div>
+
+    <div class="menu-hamburguer" id="menu-hamburguer">
+        &#9776;
+    </div>
+
+    <div class="search-bar-container">
+        <form action="{% url 'home:search' %}" method="get">
+            <input 
+                type="text" 
+                name="query" 
+                placeholder="O que você está procurando?" 
+                class="search-input">
+            <button type="submit" class="search-button">
+                🔍
+            </button>
+        </form>
+    </div>
+</header>
