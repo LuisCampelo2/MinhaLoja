@@ -12,17 +12,33 @@ header{
     position: relative; /* Necessário para posicionamento absoluto do ícone do carrinho */
     background-color: gray; /* Cor de fundo */
     height: 100px; /* Altura do header */
+    padding: 0 20px;
 }
 
 .menu-hamburguer {
-    font-size: 24px; /* Tamanho do ícone */
-    cursor: pointer; /* Mostra o cursor de clique */
-    position: absolute; /* Necessário para posicionar no lugar desejado */
-    top: 10px; /* Ajuste da posição no topo */
-    left: 20px; /* Ajuste da posição à direita */
-    color: white; /* Certifique-se de que o ícone está visível no fundo */
-    
+    font-size: 30px; /* Aumentando o tamanho do ícone */
+    color: white; /* Cor do ícone */
+    cursor: pointer;
+    position: absolute; /* Permite o posicionamento fixo dentro do header */
+    top: 10px; /* Distância do topo */
+    left: 20px; /* Distância da esquerda */
 }
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Inicialmente fora da tela */
+    width: 250px;
+    height: 100%;
+    background-color: #444;
+    color: white;
+    transition: left 0.3s ease;
+}
+
+.menu-lateral.open {
+    left: 0; /* Quando o menu é aberto */
+}
+
 
 .logo_site_container{
     display: flex;

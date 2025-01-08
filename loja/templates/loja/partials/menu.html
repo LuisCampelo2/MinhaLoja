@@ -1,0 +1,10 @@
+<nav class="menu-lateral" id="menu-lateral">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url "loja:logout" %}">Sair</a></li>
+        {% else %}
+            <li><a href="{% url "loja:login" %}">Entrar</a></li>
+        {% endif %}
+    </ul>
+</nav>
