@@ -1,12 +1,6 @@
 {% extends "loja/base.html" %}
 
 {% block content %}
-<div class='navegacao'>
-    {% if user.is_authenticated %}
-        <a href="{% url "loja:logout" %}" class="">Sair da conta</a>
-    {% else %}
-        <a href="{% url "loja:login" %}">Entrar</a>
-    {% endif %}
 </div>
 <section class="banner">
         <div class="carrossel">

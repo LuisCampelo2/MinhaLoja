@@ -13,6 +13,17 @@ header{
     background-color: gray; /* Cor de fundo */
     height: 100px; /* Altura do header */
 }
+
+.menu-hamburguer {
+    font-size: 24px; /* Tamanho do ícone */
+    cursor: pointer; /* Mostra o cursor de clique */
+    position: absolute; /* Necessário para posicionar no lugar desejado */
+    top: 10px; /* Ajuste da posição no topo */
+    left: 20px; /* Ajuste da posição à direita */
+    color: white; /* Certifique-se de que o ícone está visível no fundo */
+    
+}
+
 .logo_site_container{
     display: flex;
     justify-content: center;
