@@ -6,34 +6,12 @@ from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 
+from django import forms
+from django.contrib.auth import authenticate
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
-class CustomAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(label="Usuário ou E-mail")
-    password = forms.CharField(label="Senha", widget=forms.PasswordInput) 
 
-    def clean(self):
-        username_or_email = self.cleaned_data.get('username')
-        password = self.cleaned_data.get('password')
-
-        if username_or_email and password:
-            # Autenticar por e-mail ou usuário
-            user = authenticate(username=username_or_email, password=password)
-            if user is None:
-                from django.contrib.auth.models import User
-
-                try:
-                    # Verifica se é um e-mail e tenta buscar o usuário
-                    user_by_email = User.objects.get(email=username_or_email)
-                    user = authenticate(username=user_by_email.username, password=password)
-                except User.DoesNotExist:
-                    pass
-
-            if user is None:
-                raise forms.ValidationError("Credenciais inválidas. Verifique o nome de usuário/e-mail e a senha.")
-            else:
-                self.confirm_login_allowed(user)
-
-        return self.cleaned_data
     
     
 class RegisterUser(UserCreationForm):

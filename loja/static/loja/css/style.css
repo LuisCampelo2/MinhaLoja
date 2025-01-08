@@ -6,28 +6,60 @@ html,body{
 }
 
 header{
-    display: flex;
-    justify-content: center; /* Alinha horizontalmente */
-    align-items: center;    /* Alinha verticalmente */
-    height: 100px;          /* Altura do header (opcional) */
-    background-color: #333d47;
+    display: flex; /* Habilita o flexbox */
+    justify-content: center; /* Centraliza a logo */
+    align-items: center; /* Alinha verticalmente os itens */
+    position: relative; /* Necessário para posicionamento absoluto do ícone do carrinho */
+    background-color: gray; /* Cor de fundo */
+    height: 100px; /* Altura do header */
 }
-header a{
-    text-decoration: none;
-    color: white;
+.logo_site_container{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-
-header img {
-    width: 100%; /* A imagem ocupa toda a largura */
-    height: 100%; /* A imagem ocupa toda a altura */
-    object-fit: cover; /* Corta a imagem para preencher o espaço sem distorcer */
+.carrinho_icon_container{
+    position: absolute; /* Permite posicionar dentro do header */
+    top: 20px; /* Distância do topo */
+    right: 40px; /* Distância da esquerda */
+    border-radius: 30px;
 }
 
+.logo_site {
+    width: 90px;
+    height: 90px;
+    object-fit: cover; /* Evita distorção da imagem */
+}
+
+/* Estiliza o ícone do carrinho */
+.carrinho_icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block; /* Garante que o <a> ocupe o espaço do ícone */
+    text-align: center;
+}
+
+.carrinho_icon_container a {
+    display: block; /* Faz com que o link ocupe todo o espaço do contêiner */
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s ease; /* Suaviza a mudança de cor */
+}
+
+.carrinho_icon_container a:hover {
+    background-color: white; /* Muda a cor de fundo ao passar o mouse */
+}
+
+
+header img {
+    width: 90px; /* A imagem ocupa toda a largura */
+    height: 90px; /* A imagem ocupa toda a altura */
+    object-fit: cover; /* Corta a imagem para preencher o espaço sem distorcer */
+}
 .navegacao {
     position: fixed; /* Fixa a navegação no lugar */
     top: 30px;
-    right: 30px;
+    left: 20px;
     
 }
 
@@ -40,19 +72,29 @@ header img {
 .navegacao a:hover{
     color: white;
 }
-.login{
-    justify-content: center;
+/* Garantir que a .login_container ocupe toda a tela */
+.login_container {
+    display: flex; /* Habilita o flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Garante que ocupe toda a altura da tela */
 }
+
 .login_form {
     color: white;
     display: flex;
-    flex-direction: column; /* Organiza os itens em uma coluna, empilhando-os */
+    flex-direction: column; /* Organiza os itens em uma coluna */
     justify-content: center; /* Centraliza os itens verticalmente */
     align-items: center; /* Centraliza os itens horizontalmente */
-    padding: 20px; /* Adiciona um pouco de espaço interno */
-    border-radius: 8px; /* Deixa os cantos arredondados */
-    gap: 10px; /* Adiciona um espaço entre os itens */
-    
+    padding: 20px; /* Adiciona espaço interno */
+    border-radius: 8px; /* Cantos arredondados */
+    gap: 10px; /* Espaço entre os itens */
+    background-color: #444; /* Cor de fundo da form */
+}
+
+
+.create_account_container{
+    justify-content: center;
 }
 
 .cadastro_cliente_form{
@@ -64,4 +106,69 @@ header img {
     padding: 20px; /* Adiciona um pouco de espaço interno */
     border-radius: 8px; /* Deixa os cantos arredondados */
     gap: 10px; /* Adiciona um espaço entre os itens */
+}
+
+.banner {
+    background: url('banner.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Produtos */
+.produtos {
+    padding: 30px 20px;
+    background-color: black;
+    text-align: center;
+}
+
+.produtos h2 {
+    margin-bottom: 20px;
+}
+
+.produto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.produto-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.produto-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.produto-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.produto-item button {
+    background-color: #00aced;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.produto-item button:hover {
+    background-color: #0084b4;
 }

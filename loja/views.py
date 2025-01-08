@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from .forms import RegisterUser,CustomAuthenticationForm
+from .forms import RegisterUser,AuthenticationForm
 from django.contrib import auth
 from django.shortcuts import redirect
 from django.contrib.auth import logout
@@ -9,17 +9,17 @@ from django.contrib.auth import logout
 def index(request):
     return render(request, 'loja/pages/index.html')
 
-def login(request):
-    form = CustomAuthenticationForm(request)
+def login_view(request):
+    form = AuthenticationForm(request)
     form_action=reverse('loja:login')
 
     if request.method == 'POST':
-        form = CustomAuthenticationForm(request, data=request.POST)
+        form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            return redirect('home:index')
+            return redirect('loja:index')
             
         
     context = {

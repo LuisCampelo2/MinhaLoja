@@ -1,4 +1,10 @@
-{% load static %}<header>
-    <a href="{% url "loja:index" %}"><img src="{% static "img/Cab_Tech_logo.jpg" %}" alt="logo_site"></a>
-
+{% load static %}
+<header>
+    <div class="logo_site_container">
+        <a href="{% url "loja:index" %}"><img src="{% static "/loja/img/logo_site.png" %}" class="logo_site" alt="logo_site"></a>
+    </div>
+    
+    <div class="carrinho_icon_container">
+        <a href=""><img src="{% static "loja/img/transferir.png" %}" class="carrinho_icon"></a>
+    </div>
 </header>

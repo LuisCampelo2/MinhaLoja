@@ -1,9 +1,6 @@
 {% extends "loja/base.html" %}
 {% block content %}
-<div class='navegacao'>
-    <a href="{% url "loja:create_account" %}">Criar Conta</a>
-</div>
-<div class="login">
+<div class="login_container">
     <form 
     class="login_form"
     action="{{form_action}}"
@@ -16,9 +13,10 @@
             {{form.non_field_errors}}
         {% endfor %}
 
-        <button type="submit">entrar</button>
-        
-        
+        <button type="submit">entrar</button>  
+        <div class="create_account_container">
+            <a href="{% url "loja:create_account" %}">Não tem conta? Crie aqui</a>
+        </div>
     </form>
 </div> 
 {% endblock content %}
