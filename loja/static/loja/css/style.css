@@ -38,6 +38,18 @@ header{
 .menu-lateral.open {
     left: 0; /* Quando o menu é aberto */
 }
+.menu-lateral li{
+    list-style-type: none;
+}
+.menu-lateral a{
+    text-decoration: none;
+    color: black;
+    transition: left 0.3s ease;
+}
+
+.menu-lateral a:hover{
+    color: white;
+}
 
 
 .logo_site_container{
@@ -62,20 +74,32 @@ header{
 .carrinho_icon {
     width: 40px;
     height: 40px;
-    display: inline-block; /* Garante que o <a> ocupe o espaço do ícone */
+    display: inline-block;
     text-align: center;
+    line-height: 40px; /* Centraliza o conteúdo verticalmente */
+}
+
+.carrinho_icon_container {
+    border-radius: 30px;
+    display: inline-block; /* Garante que o contêiner ocupe o espaço do ícone */
 }
 
 .carrinho_icon_container a {
-    display: block; /* Faz com que o link ocupe todo o espaço do contêiner */
+    display: inline-block; /* Garante que o <a> ocupe o espaço corretamente */
+    transition: transform 0.3s ease-in-out; /* Transição suave */
+    cursor: pointer;
+    text-decoration: none; /* Remove o sublinhado padrão do link */
     width: 100%;
     height: 100%;
-    transition: background-color 0.3s ease; /* Suaviza a mudança de cor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carrinho_icon_container a:hover {
-    background-color: white; /* Muda a cor de fundo ao passar o mouse */
+    transform: scale(1.2);
 }
+
 
 
 header img {
@@ -199,3 +223,5 @@ header img {
 .produto-item button:hover {
     background-color: #0084b4;
 }
+
+
