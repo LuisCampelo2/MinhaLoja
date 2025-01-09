@@ -1,6 +1,11 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+{% if user.is_authenticated %}
+    <div class="bem-vindo">
+        <h1> Seja bem-vindo {{user.first_name}}</h1>
+    </div>
+{% endif %}
 <section class="banner">
         <div class="carrossel">
             <div class="carousel-images">

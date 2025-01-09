@@ -16,7 +16,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            return redirect('authentication:index')
+            return redirect('home:index')
             
         
     context = {
@@ -36,7 +36,7 @@ def createAccount(request):
             user.set_password(form.cleaned_data['password1'])  # Define a senha corretamente.
             user.save()  # Salva o usuário no banco.
             auth.login(request, user)  # Faz o login automático.
-            return redirect('authentication:index')  
+            return redirect('home:index')  
         else:
             form = RegisterUser()
         
@@ -48,6 +48,6 @@ def createAccount(request):
 
 def logout_view(request):
     logout(request)
-    return redirect ('authentication:index')
+    return redirect ('home:index')
 
 

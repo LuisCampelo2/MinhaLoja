@@ -1,0 +1,97 @@
+.create_user_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fa;
+}
+
+/* Formulário de criação de conta */
+.create_user_form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.create_user_form h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilo dos campos de formulário */
+.create_user_form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.create_user_form input[type="text"], 
+.create_user_form input[type="password"],
+.create_user_form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.create_user_form input[type="text"]:focus, 
+.create_user_form input[type="password"]:focus,
+.create_user_form input[type="email"]:focus {
+    border-color: #00aced;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 172, 237, 0.5);
+}
+
+/* Estilo do botão de criação de conta */
+.create_user_form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1b1f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create_user_form button:hover {
+    background-color: #32343a;
+}
+
+/* Link para login */
+.create_user_form a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00aced;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.create_user_form a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo de erros de formulário */
+.errors_create_account {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Adiciona um pequeno espaçamento entre os campos e o erro */
+.create_user_form .errors_create_account {
+    margin-top: -10px;
+}
