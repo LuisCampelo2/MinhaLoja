@@ -1,4 +1,6 @@
 {% extends "home/base.html" %}
+{% load static %}
+
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -9,7 +11,7 @@
 <section class="banner">
         <div class="carrossel">
             <div class="carousel-images">
-                <img src="imagem1.jpg" alt="Slide 1">
+                <img src="{% static "home/img/banner_do_site.png" %}" alt="Slide 1">
                 <img src="imagem2.jpg" alt="Slide 2">
                 <img src="imagem3.jpg" alt="Slide 3">
             </div>
@@ -27,19 +29,19 @@
             <img src="produto1.jpg" alt="Produto 1">
             <h3>Produto 1</h3>
             <p>R$ 1.000,00</p>
-            <button>Comprar</button>
+            <button>Adicionar ao carrinho</button>
         </div>
         <div class="produto-item">
             <img src="produto2.jpg" alt="Produto 2">
             <h3>Produto 2</h3>
             <p>R$ 2.000,00</p>
-            <button>Comprar</button>
+            <button>Adicionar ao carrinho</button>
         </div>
         <div class="produto-item">
             <img src="produto3.jpg" alt="Produto 3">
             <h3>Produto 3</h3>
             <p>R$ 1.500,00</p>
-            <button>Comprar</button>
+            <button>Adicionar ao carrinho</button>
         </div>
     </div>
 </section>

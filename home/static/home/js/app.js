@@ -13,3 +13,9 @@ closeBtn.addEventListener('click', () => {
     menuLateral.classList.remove('open');
 });
 
+document.querySelector('.search-button').addEventListener('click', () => {
+    const searchText = document.querySelector('.search-bar').value;
+    alert(`Você buscou por: ${searchText}`);
+});
+
+

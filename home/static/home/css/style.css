@@ -26,20 +26,14 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adicionando uma leve sombra */
 }
 
-.logo_site_container {
-    display: flex;
-    justify-content: center;  /* Centraliza a logo horizontalmente */
-    align-items: center;      /* Centraliza a logo verticalmente */
-    position: absolute;       /* Posiciona a logo no centro da header */
-    left: 50%;                /* Coloca o elemento no meio */
-    transform: translateX(-50%); /* Ajusta o posicionamento exato no centro */
+.logo_site{
+    height:60px;
+    width: 60px;
+    image-rendering: auto; 
+    margin-left: 60px;
 }
 
-.logo_site {
-    width: 90px; /* Ajuste a largura da logo */
-    height: 90px; /* Ajuste a altura da logo */
-    object-fit: cover; /* Garante que a imagem não deforme */
-}
+
 
 .menu-hamburguer {
     font-size: 30px;
@@ -82,59 +76,14 @@ header {
     background-color: #444;
     color: #fff;
 }
-
-
-
-.carrinho_icon_container {
-    position: relative;
-    border-radius: 50%;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-left: auto;
+.close-btn{
+    margin-top: 10px;
+    margin-left: 10px;
+    
 }
-
-.logo_site {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
+.close-btn:hover{
+    background-color: red;
 }
-
-.carrinho_icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-}
-
-.carrinho_icon_container:hover .carrinho_icon {
-    transform: scale(1.1); /* Leve aumento do ícone do carrinho */
-}
-
-.banner {
-    background: url('banner.jpg') no-repeat center center/cover;
-    height: 400px;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.banner h1 {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Efeito de sombra para o texto */
-}
-
-.banner p {
-    font-size: 20px;
-    font-weight: 300;
-}
-
 /* Produtos */
 .produtos {
     padding: 40px 20px;

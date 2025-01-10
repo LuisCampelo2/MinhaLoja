@@ -1,14 +1,20 @@
 {% load static %}
 <header>
-    <div class="logo_site_container">
-        <a href="{% url 'home:index' %}"><img src="{% static '/home/img/logo_site.png' %}" class="logo_site" alt="logo_site"></a>
+    <div class="menu-hamburguer" id="menu-hamburguer">
+        &#9776;
     </div>
-
+    <div class="logo_site_container">
+        <a href="{% url 'home:index' %}"><img src="{% static "home/img/logo_site.png" %}" class="logo_site" alt=""></a>
+    </div>
+    <div class="search-container">
+        
+        <input type="text" class="search-bar" placeholder="Digite aqui para buscar...">
+        <button class="search-button">Buscar</button>
+    </div>
     <div class="carrinho_icon_container">
         <a href=""><img src="{% static 'home/img/transferir.png' %}" class="carrinho_icon"></a>
     </div>
 
-    <div class="menu-hamburguer" id="menu-hamburguer">
-        &#9776;
-    
+ 
+
 </header>

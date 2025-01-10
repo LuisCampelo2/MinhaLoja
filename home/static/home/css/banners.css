@@ -1,0 +1,39 @@
+banner {
+    width: 100%;
+    overflow: hidden; /* Impede que elementos fora da área visível apareçam */
+}
+.carrossel {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animação suave ao trocar a imagem */
+}
+
+.carousel-images img {
+    width: 100%; /* Faz com que a imagem ocupe toda a largura disponível */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
