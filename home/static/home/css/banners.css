@@ -1,46 +1,49 @@
 /* CSS para o banner */
 .banner {
-    width: 100%;
-    overflow: hidden; /* Impede que elementos fora da área visível apareçam */
-}
-
-.carrossel {
+    width: 100%; /* Ocupa 100% da largura da tela */
+    height: 400px; /* Altura fixa do banner */
+    overflow: hidden; /* Esconde qualquer conteúdo fora da área visível */
+    position: relative; /* Necessário para posicionar as imagens e os botões */
     display: flex;
-    position: relative;
-    width: 100%;
-    height: 400px; /* Defina uma altura fixa para o carrossel */
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Animação suave ao trocar a imagem */
-    width: 100%; /* Garantir que o container de imagens ocupe 100% da largura */
+/* Ajuste das imagens */
+.banner img {
+    width: 100%; /* Ocupa 100% da largura do banner */
+    height: 100%; /* Ajusta a altura ao tamanho do banner */
+    object-fit: cover; /* Corta ou expande a imagem proporcionalmente para cobrir o banner */
+    position: absolute; /* Sobrepõe as imagens umas às outras */
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out; /* Transição suave de visibilidade */
+    z-index: 0;
 }
 
-.carousel-images img {
-    flex-shrink: 0; /* Impede que as imagens encolham */
-    width: 100%; /* Faz com que a imagem ocupe toda a largura disponível */
-    height: 100%; /* Ajusta a altura da imagem para preencher o carrossel */
-    object-fit: cover; /* Faz com que a imagem cubra todo o espaço disponível sem distorcer */
+/* Imagem visível */
+.banner img.active {
+    opacity: 1; /* Imagem visível */
+    z-index: 1; /* Garante que a imagem visível esteja por cima */
 }
 
 /* Botões de navegação */
 .carousel-btn {
     position: absolute;
-    top: 50%;
+    top: 50%; /* Centraliza verticalmente os botões */
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    color: white; /* Cor do texto/brackets */
     border: none;
     padding: 10px;
     cursor: pointer;
+    z-index: 10; /* Garante que os botões fiquem acima das imagens */
 }
 
-.prev {
-    left: 10px;
+.carousel-btn.prev {
+    left: 10px; /* Botão esquerdo */
 }
 
-.next {
-    right: 10px;
+.carousel-btn.next {
+    right: 10px; /* Botão direito */
 }
+
 

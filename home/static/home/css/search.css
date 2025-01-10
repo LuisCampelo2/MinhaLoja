@@ -6,10 +6,17 @@
     margin-left: auto;
     margin-right: auto;
     padding: 10px; /* Ajuste o padding conforme necessário */
-    gap: 20px; /* Espaço entre os elementos dentro do container */
+    gap: 4px; /* Espaço entre os elementos dentro do container */
     
 }
 
+.search-container img{
+    width: 120px;
+    height: 88px;
+    image-rendering: auto; 
+    margin-left: 60px;
+    margin-left: 95px;
+}
 .search-bar {
     border: 2px radius black;
     border-radius: 30px;

@@ -1,0 +1,23 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<div class="resultados">
+    <h1>Resultados da busca</h1>
+</div>
+{% if resultados %}
+<div class="itens_do_resultado_de_busca">
+    <ul>
+        {% for produto in resultados %}
+            <li>
+                <strong>{{ produto.nome }}</strong> - R$ {{ produto.preco }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum resultado encontrado para "{{ query }}".</p>
+{% endif %}
+    <div class="voltar_pro_index">
+        <a href="{% url 'home:index' %}">Voltar</a>
+    </div>
+</div>
+{% endblock content %}

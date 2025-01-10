@@ -1,0 +1,103 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fafafa; /* Cor de fundo suave */
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Coloca logo e ícone do carrinho nas extremidades */
+    align-items: center;
+    padding: 0 20px;
+    background-color: black; /* Cor de fundo branca */
+    height: 100px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adicionando uma leve sombra */
+    
+}
+.logo_site_container{
+    margin-left: 100px;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+}
+
+.menu-hamburguer {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.menu-lateral.open {
+    left: 0;
+}
+
+.menu-lateral li {
+    list-style-type: none;
+}
+
+.menu-lateral a {
+    display: block;
+    text-decoration: none;
+    color: #ccc;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-lateral a:hover {
+    background-color: #444;
+    color: #fff;
+}
+.close-btn{
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+.close-btn:hover{
+    background-color: red;
+
+}
+.bem-vindo {
+    text-align: center;
+    max-width: 0; /* Largura inicial */
+    overflow: hidden; /* Esconde o conteúdo até que a div abra */
+    white-space: nowrap; /* Garante que o texto não quebre em múltiplas linhas */
+    transition: max-width 1s ease-in-out; /* Animação suave de largura */
+}
+
+.bem-vindo.ativo {
+    max-width: 1900px; /* Largura máxima desejada para o ponto de transição */
+}
+
+
+.bem-vindo h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
