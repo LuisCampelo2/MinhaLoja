@@ -54,6 +54,7 @@ header {
     color: white;
     transition: left 0.3s ease;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
 }
 
 .menu-lateral.open {
