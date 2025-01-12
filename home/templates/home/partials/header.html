@@ -1,29 +1,30 @@
 {% load static %}
 <header>
-    <!-- Menu Hamburguer -->
+    
     <div class="menu-hamburguer" id="menu-hamburguer">
         &#9776;
     </div>
 
-    <!-- Logo do Site -->
-
-    <!-- Barra de Busca -->
-    <div class="search-container">
-            <a href="{% url 'home:index' %}">
-                <img src="{% static 'home/img/logo_site.png' %}" class="logo_site" alt="Logo do site">
-            </a>
-        
-        <form method="GET" action="{% url 'home:busca' %}">
-            <input type="text" class="search-bar" name="q" placeholder="Buscar produtos..." required>
-            <button type="submit" class="search-button">Buscar</button>
-        </form>
-        
+    {% if user.is_authenticated %}
+        <div class="bem-vindo">
+            <h1>Olá, {{ user.first_name }}</h1>
+        </div>
+    {% endif %}
+    <div class="logo-container">
+        <a href="{% url 'home:index' %}">
+            <img src="{% static 'home/img/logo_site.png' %}" class="logo_site" alt="Logo do site">
+        </a>
     </div>
+    <div>
+        <i class="fas fa-search" id="search-icon" style="font-size: 24px; color: white; margin-right: 30px;"></i>
+    </div>
+   
 
-    <!-- Ícone do Carrinho -->
+   
     <div class="carrinho_icon_container">
         <a href="{% url "orders:carrinho" %}">
-            <img src="{% static 'home/img/transferir.png' %}" class="carrinho_icon" alt="Ícone do carrinho">
+            <i class="fas fa-shopping-cart" style="color: white; "></i>
+            
         </a>
     </div>
 </header>

@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% block title %}CAB TECH- CARRINHO DE COMPRAS{% endblock %}
 {% load static %}
 
 {% block content %}
@@ -25,7 +26,7 @@
                     <td>R$ {{ item.preco }}</td>
                     <td>{{item.quantidade}}</td>
                     <td>R$ {{ item.total }}</td>
-                    <td><a href="{% url 'orders:removeritem' item.id %}" class= 'removeritem'>Remover Item [X]</a></td>
+                    <td><a href="{% url 'orders:removeritem' item.id %}" class= 'removeritem'>Remover Item</a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,14 +1,20 @@
 {% load static %}<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    {% load static %}
+    <title>{% block title %}CAB TECH {% endblock %}</title>
     {% include "home/partials/head.html" %}
 </head>
 <body>
     {% include "home/partials/header.html" %}
     {% include "home/partials/menu.html" %}
+    {% include "home/partials/searchBar.html" %}
+    <main>
+        {% block content %}
+        {% endblock  %}
+    </main>
     
-    {% block content %}
-    {% endblock  %}
+    {% include "home/partials/footer.html" %}
     <script src="{% static 'home/js/app.js' %}"></script>
 </body>
 </html>

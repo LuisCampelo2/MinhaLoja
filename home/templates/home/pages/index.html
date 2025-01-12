@@ -9,13 +9,18 @@
 {% endif %}
 
 <section class="banner">
-            <img src="{% static 'home/img/imagens-do-banner/cab.jpg' %}" alt="Slide 1">
-            <img src="{% static 'home/img/imagens-do-banner/banner.jpg' %}" alt="Slide 2">
+    <div class="carousel">
+        <!-- Vídeo -->
+        <div class="carousel-item active">
+            <video autoplay muted loop>
+                <source src="{% static 'home/video/CAB.mp4' %}" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
         </div>
-        <button class="carousel-btn prev">&lt;</button>
-        <button class="carousel-btn next">&gt;</button>
+    <!-- Botões de Navegação -->
+    <button class="carousel-btn prev">&lt;</button>
+    <button class="carousel-btn next">&gt;</button>
 </section>
-
 <!-- Seção de produtos -->
 <section id="produtos" class="produtos">
     <h2>Produtos em Destaque</h2>

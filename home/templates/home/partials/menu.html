@@ -1,5 +1,5 @@
 <nav class="menu-lateral" id="menu-lateral">
-    <button class="close-btn" id="close-btn">Fechar</button>
+    <button class="close-btn" id="close-btn"><i class="fas fa-times-circle"></i></button>
     <ul>
         {% if user.is_authenticated %}
             <li><a href="{% url "authentication:logout" %}">Sair</a></li>
