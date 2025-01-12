@@ -44,15 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const lupaBusca = document.getElementById('search-icon');
     const barraBusca = document.getElementById('search-container');
 
+    // Verifica se os elementos existem
     if (lupaBusca && barraBusca) {
+        // Abre ou fecha a barra de busca
         lupaBusca.addEventListener('click', () => {
-            if (barraBusca.style.display === 'none' || barraBusca.style.display === '') {
-                barraBusca.style.display = 'block'; // Mostra a barra de busca
-            } else {
-                barraBusca.style.display = 'none'; // Esconde a barra de busca
-            }
+            barraBusca.classList.toggle('open'); // Alterna a classe 'open'
         });
     } else {
-        alert('elemento nao encontrado')
+        alert('Elemento não encontrado');
     }
 });
