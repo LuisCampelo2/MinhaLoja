@@ -15,8 +15,16 @@
             <img src="{% static 'home/img/logo_site.png' %}" class="logo_site" alt="Logo do site">
         </a>
     </div>
-    <div>
-        <i class="fas fa-search" id="search-icon" style="font-size: 24px; color: white; margin-right: 30px;"></i>
+    
+        <i class="fas fa-search" id="icon-search" style="font-size: 24px; color: white; margin-right: 30px;"></i>
+    
+    <div class="search-container" id="search-container">
+        <form method="GET" action="{% url 'home:busca' %}">
+            <div class="search-bar">  
+                <input type="text" class="search-bar" name="q" placeholder="Buscar produtos..." required>
+                <button type="submit" class="search-button">Buscar</button>
+            </div>
+        </form>
     </div>
    
 

@@ -8,13 +8,15 @@
 <body>
     {% include "home/partials/header.html" %}
     {% include "home/partials/menu.html" %}
-    {% include "home/partials/searchBar.html" %}
+    
     <main>
         {% block content %}
         {% endblock  %}
     </main>
     
     {% include "home/partials/footer.html" %}
-    <script src="{% static 'home/js/app.js' %}"></script>
+    <script src="{% static 'home/js/menu.js' %}"defer></script>
+    <script src="{% static 'home/js/carrossel.js' %}"defer></script>
+    <script src="{% static 'home/js/search.js' %}"defer></script>
 </body>
 </html>

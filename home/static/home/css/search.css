@@ -1,19 +1,19 @@
-
 /* Barra de busca */
 #search-container {
-    display: none; /* Escondida por padrão */
-    min-height: 90px;
-    width: 100%;
-    background-color: black;
-    z-index: 3000;  /* Tente aumentar o z-index */
-    position: relative;  /* Garantir que o z-index funcione */
-    
+    visibility: hidden; /* Inicialmente escondido */
+    opacity: 0; /* Torna o elemento invisível */
+    transform: translateY(-100%); /* Faz a barra começar fora da tela */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    position: fixed; /* Pode ser útil para mantê-la na tela mesmo quando rolar */
+    top: 10%; /* Exemplo de posicionamento */
+    left: 0;
+    right: 0;
 }
 
-.search-container form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#search-container.open {
+    visibility: visible; /* Torna o elemento visível */
+    opacity: 1; /* Torna o elemento opaco */
+    transform: translateY(0); /* Faz a barra descer para a posição original */
 }
 .search-bar{
     display: flex;
