@@ -17,16 +17,14 @@ def myaccount(request):
 @login_required
 def editdata(request):
     user = request.user
-
+    
     if request.method == 'POST':
         form = EditMyAccountForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return JsonResponse({'success': True})
-        else:
-            return JsonResponse({'success': False, 'errors': form.errors})
-
-    form = EditMyAccountForm(instance=user)
+            return redirect('users:myaccount')
+    else:
+        form = EditMyAccountForm(instance=user)
     context = {
         'form': form,
         'form_action': reverse('users:alterdata'),

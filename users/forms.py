@@ -216,22 +216,11 @@ class EditMyAccountForm(forms.ModelForm):
             'username', 'telefone'
         )
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if CustomUser.objects.filter(email=email).exists():
-            raise ValidationError('Este email já está registrado.', code='invalid')
-        return email
-
-    def clean_username(self):
-        username = self.cleaned_data.get('username')
-        if CustomUser.objects.filter(username=username).exists():
-            raise ValidationError('Este nome de usuário já está em uso.', code='invalid')
-        return username
-
     def save(self, commit=True):
+        # Obtemos o usuário atual (sem salvar ainda)
         user = super().save(commit=False)
 
-        # Não altere os campos não preenchidos
+        # Verificamos e mantemos os valores atuais nos campos não alterados
         if 'first_name' not in self.cleaned_data:
             user.first_name = user.first_name
 
@@ -247,6 +236,8 @@ class EditMyAccountForm(forms.ModelForm):
         if 'telefone' not in self.cleaned_data:
             user.telefone = user.telefone
 
+        # Se o commit for verdadeiro, salvamos o objeto
         if commit:
             user.save()
         return user
+
