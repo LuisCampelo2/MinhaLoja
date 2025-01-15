@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse
 from .forms import MyAccountForm,EditMyAccountForm
-
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 # Create your views here.
 def myaccount(request):
     user=request.user
@@ -12,20 +13,22 @@ def myaccount(request):
     }
     return render(request,'users/pages/myaccount.html',context)
 
+
+@login_required
 def editdata(request):
     user = request.user
-    form_action = reverse('users:alterdata')  # Gera a URL para o formulário
 
-    if request.method == 'POST':  # Corrigido para verificar o método da requisição
+    if request.method == 'POST':
         form = EditMyAccountForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('users:myaccount')  # Redireciona após salvar
-    else:
-        form = EditMyAccountForm(instance=user)  # Para requisições GET, carrega o formulário com dados do usuário
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors})
 
+    form = EditMyAccountForm(instance=user)
     context = {
         'form': form,
-        'form_action': form_action,
+        'form_action': reverse('users:alterdata'),
     }
     return render(request, 'users/pages/alterdata.html', context)

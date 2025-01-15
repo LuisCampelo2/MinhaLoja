@@ -118,7 +118,7 @@ class RegisterUser(forms.ModelForm):
         model = CustomUser
         fields = (
             'first_name', 'last_name', 'email',
-            'username', 'password1', 'password2', 'cpf', 'data_nascimento',
+            'username', 'password1', 'password2', 'cpf', 'data_nascimento','telefone'
         )
 
     def clean_email(self):
@@ -147,13 +147,61 @@ class RegisterUser(forms.ModelForm):
         return password2
 
 class MyAccountForm(forms.ModelForm):
-    class Meta:
+     first_name = forms.CharField(
+        label=" Nome:",
+        required=True,
+        min_length=3,
+    )
+     last_name = forms.CharField(
+        label="Sobrenome:",
+        required=True,
+        min_length=3,
+    )
+     email = forms.EmailField(
+        label="Email:"
+    )
+     username = forms.CharField(
+        label="Nome de Usuário:",
+        required=True,
+    )
+    
+     cpf = forms.CharField(
+        max_length=11,
+        label='CPF',
+        help_text='Insira o CPF com 11 dígitos numéricos',
+    )
+     telefone = forms.CharField(
+        max_length=15,
+        required=False,
+        label='Telefone',
+        help_text='Insira o telefone no formato (XX) XXXXX-XXXX',
+    )
+     data_nascimento = forms.DateField(
+        required=False,
+        label='Data de Nascimento',
+)   
+     GENERO_CHOICES = [
+    ('M', 'Masculino'),
+    ('F', 'Feminino'),
+    ('O', 'Outro'),
+    ('N', 'Prefiro não informar'),
+]
+
+     genero = forms.ChoiceField(
+        choices=GENERO_CHOICES,
+        required=True,
+        label="Gênero",
+        widget=forms.Select(attrs={
+        'class': 'form-control',  # Classe CSS para estilização
+    }),
+)
+     class Meta:
         model = CustomUser
         fields = (
             'first_name', 'last_name', 'email',
             'username','cpf', 'data_nascimento','telefone'
         )
-    def __init__(self, *args, **kwargs):
+     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Tornar todos os campos somente leitura
         for field in self.fields.values():
@@ -165,7 +213,7 @@ class EditMyAccountForm(forms.ModelForm):
         model = CustomUser
         fields = (
             'first_name', 'last_name', 'email',
-            'username','telefone'
+            'username', 'telefone'
         )
 
     def clean_email(self):
@@ -179,3 +227,26 @@ class EditMyAccountForm(forms.ModelForm):
         if CustomUser.objects.filter(username=username).exists():
             raise ValidationError('Este nome de usuário já está em uso.', code='invalid')
         return username
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+
+        # Não altere os campos não preenchidos
+        if 'first_name' not in self.cleaned_data:
+            user.first_name = user.first_name
+
+        if 'last_name' not in self.cleaned_data:
+            user.last_name = user.last_name
+
+        if 'email' not in self.cleaned_data:
+            user.email = user.email
+
+        if 'username' not in self.cleaned_data:
+            user.username = user.username
+
+        if 'telefone' not in self.cleaned_data:
+            user.telefone = user.telefone
+
+        if commit:
+            user.save()
+        return user
