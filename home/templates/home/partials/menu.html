@@ -2,8 +2,10 @@
     <button class="close-btn" id="close-btn"><i class="fas fa-times-circle"></i></button>
     <ul>
         {% if user.is_authenticated %}
-            <li><a href="{% url "authentication:logout" %}">Sair</a></li>
-            <li><a href="{% url "orders:meuspedidos" %}">Meus Pedidos</a></li>
+            <li><a href="{% url "users:myaccount" %}"><i class="fa fa-home"></i>
+                Minha conta</a></li>
+            <li><a href="{% url "orders:meuspedidos" %}"><i class="fa fa-shopping-basket"></i>
+                Meus Pedidos</a></li>
         {% else %}
             <li><a href="{% url "authentication:login" %}">Entrar</a></li>
         {% endif %}

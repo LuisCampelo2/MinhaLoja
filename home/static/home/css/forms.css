@@ -1,0 +1,91 @@
+/* Estilo universal para formulários */
+form {
+    max-width: 600px; /* Limita a largura do formulário */
+    margin: 20px auto; /* Centraliza o formulário */
+    padding: 20px;
+    background-color: #f9f9f9; /* Cor de fundo suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para os rótulos */
+form label {
+    display: block; /* Cada rótulo em uma linha própria */
+    margin-bottom: 8px;
+    font-weight: bold; /* Texto em negrito */
+    color: #333;
+}
+
+/* Estilo para os campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%; /* Preenche a largura do formulário */
+    padding: 10px;
+    margin-bottom: 15px; /* Espaço inferior */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 16px;
+    background-color: #fff;
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+/* Campos de formulário em foco */
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #007bff; /* Cor de borda em foco */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Destaque em foco */
+}
+
+/* Estilo para botões */
+form button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+/* Mensagens de erro */
+form .errors_create_account {
+    color: #ff4d4d; /* Vermelho para erros */
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Ajustes para formulários responsivos */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+    
+    form label {
+        font-size: 14px;
+    }
+    
+    form input,
+    form textarea {
+        font-size: 14px;
+    }
+    
+    form button {
+        font-size: 14px;
+    }
+}

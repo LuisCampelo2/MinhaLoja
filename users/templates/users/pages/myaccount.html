@@ -1,0 +1,16 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<h1>Meus Dados</h1>
+<form>
+    
+    {% for field in form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+    {% endfor %}
+    <a href="{% url "users:alterdata" %}">Editar Meus Dados</a>
+    <a href="{% url "authentication:logout" %}">Sair Da Conta</a>
+</form>
+
+
+{% endblock content %}

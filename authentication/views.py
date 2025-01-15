@@ -1,17 +1,17 @@
 from django.shortcuts import render
 from django.urls import reverse
-from .forms import RegisterUser,AuthenticationForm
+from users.forms import RegisterUser,CustomAuthenticationForm
 from django.contrib import auth
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 
 # Create your views here.
 def login_view(request):
-    form = AuthenticationForm(request)
+    form = CustomAuthenticationForm(request)
     form_action=reverse('authentication:login')
 
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = CustomAuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             user = form.get_user()

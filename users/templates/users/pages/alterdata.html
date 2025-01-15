@@ -1,0 +1,14 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<form
+        action="{{ form_action }}"
+        method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+    {% endfor %}
+    <button class="button" type="submit">Enviar alterações</button>
+</form>
+{% endblock content %}
