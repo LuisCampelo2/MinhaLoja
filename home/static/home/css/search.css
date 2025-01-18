@@ -45,3 +45,84 @@
 .search-button:hover {
     background-color: #0056b3;
 }
+
+/* Estilo geral para o contêiner de resultados */
+.resultados {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resultados h1 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Estilo para o contêiner dos itens */
+.itens_do_resultado_de_busca {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a lista */
+.itens_do_resultado_de_busca ul {
+    list-style-type: none; /* Remove os marcadores */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para os itens */
+.itens_do_resultado_de_busca li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.itens_do_resultado_de_busca li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+/* Estilo do nome e preço do produto */
+.itens_do_resultado_de_busca li strong {
+    font-size: 18px;
+    color: #555;
+}
+
+.itens_do_resultado_de_busca li {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Estilo para mensagens sem resultados */
+.itens_do_resultado_de_busca p {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Botão "Voltar" */
+.itens_do_resultado_de_busca a {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 150px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para o botão "Voltar" */
+.itens_do_resultado_de_busca a:hover {
+    background-color: #0056b3;
+}

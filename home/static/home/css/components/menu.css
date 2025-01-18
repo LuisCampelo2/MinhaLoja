@@ -1,0 +1,56 @@
+.menu-hamburguer {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.menu-lateral.open {
+    left: 0;
+}
+
+.menu-lateral li {
+    list-style-type: none;
+}
+
+.menu-lateral a {
+    display: block;
+    text-decoration: none;
+    color: #ccc;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-lateral a:hover {
+    background-color: #444;
+    color: #fff;
+}
+.close-btn{
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+.close-btn:hover{
+    background-color: red;
+
+}
+
+.navbar-menu{
+    background-color: blue;
+}
