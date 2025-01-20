@@ -1,4 +1,6 @@
 {% extends "home/base.html" %}
+{% block search_bar %}
+{% endblock %}
 {% block content %}
 <div class="login_container">
     <form 
@@ -13,9 +15,11 @@
             {{form.non_field_errors}}
         {% endfor %}
 
-        <button type="submit">entrar</button>  
+        <button type="submit">entrar</button> 
+       
         <div class="create_account_container">
             <a href="{% url "authentication:create_account" %}">Não tem conta? Crie aqui</a>
+            <a href="{% url "authentication:esqueci_senha" %}">Esqueci a senha</a>
         </div>
     </form>
 </div> 

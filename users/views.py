@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.urls import reverse
 from .forms import MyAccountForm,EditMyAccountForm
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+
 # Create your views here.
 def myaccount(request):
     user=request.user

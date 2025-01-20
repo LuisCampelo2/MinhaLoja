@@ -1,50 +1,51 @@
 /* Barra de busca */
-#search-container {
-    visibility: hidden; /* Inicialmente escondido */
-    opacity: 0; /* Torna o elemento invisível */
-    transform: translateY(-100%); /* Faz a barra começar fora da tela */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    position: fixed; /* Pode ser útil para mantê-la na tela mesmo quando rolar */
-    top: 10%; /* Exemplo de posicionamento */
-    left: 0;
-    right: 0;
-}
-
-#search-container.open {
-    visibility: visible; /* Torna o elemento visível */
-    opacity: 1; /* Torna o elemento opaco */
-    transform: translateY(0); /* Faz a barra descer para a posição original */
-}
-
-.search-bar{
+.search-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+}
+
+.search-container form{
+    display: flex;
+    border: 2px solid black;
+    align-items: center;
+    height: 40px; /* Ajuste para altura do formulário */
+    padding: 0 10px; /* Espaçamento interno */
+    position: relative; /* Necessário para que o botão posicionado como absoluto fique dentro do formulário */
+    width: 100%; /* Ajuste para controle do tamanho */
+    gap: 10px;
     
 }
-.search-bar input{
-    border-radius: 30px;
-    height: 50px;
-    width: 500px;
-    padding-left: 10px;
+
+.search-container form:focus-within{
+    border-color: blue;
+    
 }
 
-
-.search-button {
-    padding: 10px 15px;
-    border: radius;
-    border-radius: 30px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
+#search-button{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background-color: transparent;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.search-button:hover {
-    background-color: #0056b3;
+.search-bar{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding-right: 20px;
 }
+.search-bar:focus{
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: none; /* Remove qualquer sombra aplicada no focus */
+    border-color: initial; 
+}
+
+
+
+
+
 
 /* Estilo geral para o contêiner de resultados */
 .resultados {

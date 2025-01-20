@@ -1,14 +1,17 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    {% load static %}
     <title>{% block title %}CAB TECH {% endblock %}</title>
     {% include "home/partials/head.html" %}
 </head>
 <body>
     {% include "home/partials/header.html" %}
+    {% block search_bar %}
+    {% include "home/partials/search_bar.html" %}
+    {% endblock %}
     {% include "home/partials/menu.html" %}
-    
+   
     <main>
         {% block content %}
         {% endblock  %}

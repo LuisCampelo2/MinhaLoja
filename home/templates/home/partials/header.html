@@ -16,19 +16,6 @@
         </a>
     </div>
     
-        <i class="fas fa-search" id="icon-search" style="font-size: 24px; color: white; margin-right: 30px;"></i>
-    
-    <div class="search-container" id="search-container">
-        <form method="GET" action="{% url 'home:busca' %}">
-            <div class="search-bar">  
-                <input type="text" class="search-bar" name="q" placeholder="Buscar produtos..." required>
-                <button type="submit" class="search-button">Buscar</button>
-            </div>
-        </form>
-    </div>
-   
-
-   
     <div class="carrinho_icon_container">
         <a href="{% url "orders:carrinho" %}">
             <i class="fas fa-shopping-cart" style="color: white; "></i>

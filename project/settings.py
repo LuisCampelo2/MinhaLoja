@@ -131,3 +131,10 @@ LOGIN_URL = '/authentication/login/'
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Usa SMTP para envio de e-mails
+EMAIL_HOST = 'smtp.gmail.com'  # Endereço do servidor de e-mail do Gmail
+EMAIL_PORT = 587  # Porta para conexão SMTP com TLS
+EMAIL_USE_TLS = True  # Ativa a camada de segurança TLS
+EMAIL_HOST_USER = 'luisfilipecab@gmail.com'  # Seu e-mail do Gmail
+EMAIL_HOST_PASSWORD = 'sua_senha_de_aplicativo'  # Senha específica para o aplicativo
