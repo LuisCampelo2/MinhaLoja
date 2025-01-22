@@ -1,0 +1,25 @@
+{% extends "home/base.html" %}
+{% block search_bar %}{% endblock search_bar %}
+{% block content %}
+
+    <form id="payment-form" method="POST">
+        {% csrf_token %}
+        <input type="text" name="email" id="email" placeholder="Email do comprador" required>
+        
+        <div id="cardNumber"></div>
+        <div id="expirationDate"></div>
+        <div id="securityCode"></div>
+        
+        <input type="text" id="cardholderName" placeholder="Nome do titular do cartão" required>
+        <input type="text" id="docNumber" placeholder="Documento do titular (CPF)" required>
+        {{ total }}
+        <button type="submit" id="pay">Pagar</button>
+    </form>
+   
+
+   
+{% endblock content %}
+
+
+
+
