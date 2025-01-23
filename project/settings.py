@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'home',
     'users',
     'orders',
-    'pagamento',
+    'pagamento'
 ]
 
 MIDDLEWARE = [
@@ -142,4 +142,6 @@ EMAIL_HOST_PASSWORD = 'knqx lrih vwda eelt'  # Senha de aplicativo, não a senha
 DEFAULT_FROM_EMAIL = 'luisfilipecab@gmail.com'  # O e-mail que aparecerá no "De"
 
 
-MERCADO_PAGO_ACCESS_TOKEN = "TEST-5939857055849376-012110-6cf0ea4bafee4dc12d3213a0c40e9f4a-1511571029"
+STRIPE_PUBLISHABLE_KEY="pk_test_51QjiifCGM92qi593TJNdDWCkc0Nwb5VazFeGiM9y079fNqQSOUO51mUxP3hL5S8VWDqI85D6ZY6JtbAX1m0y9FiC006M4ZjzrT"
+
+STRIPE_SECRET_KEY="sk_test_51QjiifCGM92qi593W6ZXXrESXuTiKYSCXIReAZbzaT1iHs1aVeTZJ9l6HVBE77AosloQyklL83R84szo04BEIhkT00eYVBQFPf"

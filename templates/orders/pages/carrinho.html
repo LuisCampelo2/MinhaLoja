@@ -34,7 +34,7 @@
 
     <div class="carrinho-total">
         <h3>Total: R$ {{ carrinho.total }}</h3>
-        <a href="{% url "pagamento:processar-pagamento" %}">Finalizar Compra</a>
+        <a href="{% url "pagamento:checkout" %}">Finalizar Compra</a>
     </div>
 {% else %}
     <p>Seu carrinho está vazio. Adicione produtos para continuar.</p>

@@ -2,19 +2,42 @@
 {% block search_bar %}{% endblock search_bar %}
 {% block content %}
 
-    <form id="payment-form" method="POST">
-        {% csrf_token %}
-        <input type="text" name="email" id="email" placeholder="Email do comprador" required>
-        
-        <div id="cardNumber"></div>
-        <div id="expirationDate"></div>
-        <div id="securityCode"></div>
-        
-        <input type="text" id="cardholderName" placeholder="Nome do titular do cartão" required>
-        <input type="text" id="docNumber" placeholder="Documento do titular (CPF)" required>
-        {{ total }}
-        <button type="submit" id="pay">Pagar</button>
+<h1>Pagar com Stripe</h1>
+    <form action="{% url "pagamento:create_payment" %}" id="payment-form">
+        <div id="card-element"></div>
+        <button type="submit">Pagar</button>
     </form>
+
+    <script>
+        const stripe = Stripe("{{ stripe_publishable_key }}");  // Chave pública
+        const form = document.getElementById('payment-form');
+
+        fetch('/create-payment/')
+            .then(res => res.json())
+            .then(data => {
+                const clientSecret = data.client_secret;
+
+                const elements = stripe.elements();
+                const cardElement = elements.create('card');
+                cardElement.mount('#card-element');
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const {error, paymentIntent} = await stripe.confirmCardPayment(clientSecret, {
+                        payment_method: {
+                            card: cardElement,
+                        },
+                    });
+
+                    if (error) {
+                        alert(error.message);
+                    } else {
+                        alert("Pagamento realizado com sucesso!");
+                    }
+                });
+            });
+    </script>
    
 
    
