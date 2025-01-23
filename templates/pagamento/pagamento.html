@@ -5,6 +5,7 @@
 <h1>Pagar com Stripe</h1>
     <form action="{% url "pagamento:create_payment" %}" id="payment-form">
         <div id="card-element"></div>
+        <h1>Total a Pagar: {{total}}</h1>
         <button type="submit">Pagar</button>
     </form>
 
