@@ -6,12 +6,16 @@
 <form id="payment-form">
     {% csrf_token %}
     <div id="card-element"></div>
-    <h1>Total a Pagar: {{ total|floatformat:2 }}</h1>
+    <h1>Total a Pagar: R$ {{ total|floatformat:2 }}</h1>
     <button type="submit" id="submit-button">Pagar</button>
 </form>
 
 <script>
-    const stripe = Stripe("{{ stripe_publishable_key }}");  // Chave pública
+    // Obtendo o CSRF Token
+    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    // Inicializando o Stripe
+    const stripe = Stripe("{{ stripe_publishable_key }}"); // Chave pública do Stripe
     const form = document.getElementById('payment-form');
     const submitButton = document.getElementById('submit-button');
 
@@ -20,46 +24,53 @@
     const cardElement = elements.create('card');
     cardElement.mount('#card-element');
 
-    // Passando o total de forma segura
-    const totalAmount = {{ total|floatformat:2|default:"0" }};  // Garante que seja um número e define 0 caso não tenha valor
+    // Total enviado pelo backend
+    const totalAmount = parseFloat("{{ total|floatformat:2|default:'0' }}");
 
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();  // Impede o envio tradicional do formulário
+        e.preventDefault(); // Impede o envio tradicional do formulário
 
-        // Desabilita o botão para evitar múltiplos cliques
-        submitButton.disabled = true;
+        submitButton.disabled = true; // Desabilita o botão para evitar múltiplos cliques
 
-        // Envia uma requisição POST para criar o PaymentIntent e pegar o client_secret
-        const response = await fetch("/create_payment/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRFToken": "{{ csrf_token }}",  // Token CSRF para segurança
-            },
-            body: JSON.stringify({ total: totalAmount }),  // Envia o total de forma segura
-        });
-
-        const data = await response.json();
-
-        if (data.client_secret) {
-            // Usando o client_secret retornado para confirmar o pagamento
-            const {error, paymentIntent} = await stripe.confirmCardPayment(data.client_secret, {
-                payment_method: {
-                    card: cardElement,
+        try {
+            // Faz a requisição para criar o PaymentIntent
+            const response = await fetch("{% url 'create_payment' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrfToken, // Envia o token CSRF
                 },
+                body: JSON.stringify({ total: totalAmount }), // Envia o total para o backend
             });
 
-            if (error) {
-                alert(error.message);
-            } else {
-                alert("Pagamento realizado com sucesso!");
+            if (!response.ok) {
+                throw new Error("Erro ao criar o pagamento. Código: " + response.status);
             }
-        } else {
-            alert("Erro ao criar o pagamento. Tente novamente.");
+
+            const data = await response.json();
+
+            if (data.client_secret) {
+                // Confirma o pagamento com o Stripe
+                const { error, paymentIntent } = await stripe.confirmCardPayment(data.client_secret, {
+                    payment_method: {
+                        card: cardElement,
+                    },
+                });
+
+                if (error) {
+                    alert("Erro no pagamento: " + error.message);
+                } else {
+                    alert("Pagamento realizado com sucesso!");
+                }
+            } else {
+                alert("Erro ao criar o pagamento: " + data.error);
+            }
+        } catch (err) {
+            console.error("Erro durante o pagamento:", err);
+            alert("Ocorreu um erro durante o processo de pagamento.");
         }
 
-        // Habilita o botão novamente
-        submitButton.disabled = false;
+        submitButton.disabled = false; // Habilita o botão novamente
     });
 </script>
 
