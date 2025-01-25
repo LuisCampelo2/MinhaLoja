@@ -2,12 +2,6 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <div class="bem-vindo">
-        <h1>Seja bem-vindo {{ user.first_name }}</h1>
-    </div>
-{% endif %}
-
 <section class="banner">
     <div class="carousel">
         <!-- Vídeo -->

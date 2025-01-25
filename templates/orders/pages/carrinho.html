@@ -4,40 +4,41 @@
 {% block search_bar %}{% endblock search_bar %}
 {% block content %}
 <h1>Carrinho de Compras</h1>
-
-{% if carrinho.itempedido_set.all %}
-    <table class="carrinho-tabela">
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Valor</th>
-                <th>Remover</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in carrinho.itempedido_set.all %}
+<div class="main-conateiner-carrinho">
+    {% if carrinho.itempedido_set.all %}
+        <table class="carrinho-tabela">
+            <thead>
                 <tr>
-                    <td>
-                        <img src="{% if item.produto.imagem %}{{ item.produto.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" alt="{{ item.produto.nome }}" class="imagem-produto">
-                        {{ item.produto.nome }}
-                    </td>
-                    <td>R$ {{ item.preco }}</td>
-                    <td>{{item.quantidade}}</td>
-                    <td>R$ {{ item.total }}</td>
-                    <td><a href="{% url 'orders:removeritem' item.id %}" class= 'removeritem'>Remover Item</a></td>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Remover</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for item in carrinho.itempedido_set.all %}
+                    <tr>
+                        <td>
+                            <img src="{% if item.produto.imagem %}{{ item.produto.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" alt="{{ item.produto.nome }}" class="imagem-produto">
+                            {{ item.produto.nome }}
+                        </td>
+                        <td>R$ {{ item.preco }}</td>
+                        <td>{{item.quantidade}}</td>
+                        <td>R$ {{ item.total }}</td>
+                        <td><a href="{% url 'orders:removeritem' item.id %}" class= 'removeritem'>Remover Item</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <div class="carrinho-total">
-        <h3>Total: R$ {{ carrinho.total }}</h3>
-        <a href="{% url "pagamento:checkout" %}">Finalizar Compra</a>
-    </div>
-{% else %}
-    <p>Seu carrinho está vazio. Adicione produtos para continuar.</p>
-{% endif %}
-
+        <div class="carrinho-total-container">
+            <div class="carrinho-total">
+                <h3>Total: R$ {{ carrinho.total }}</h3>
+                <a href="{% url "pagamento:checkout" %}" style="text-decoration: none; color: white;">Finalizar Compra</a>
+            </div>
+    {% else %}
+        <p>Seu carrinho está vazio. Adicione produtos para continuar.</p>
+    {% endif %}
+</div>
 {% endblock %}

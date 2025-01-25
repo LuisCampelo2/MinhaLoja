@@ -3,13 +3,15 @@
 {% block content %}
 
 <h1>Pagar com Stripe</h1>
-<form id="payment-form">
-    {% csrf_token %}
-    <div id="card-element"></div>
-    <h1>Total a Pagar: R$ {{ total|floatformat:2 }}</h1>
-    <button type="submit" id="submit-button">Pagar</button>
-</form>
-
+<div class="pagamento-main-container">
+    <form id="payment-form">
+        {% csrf_token %}
+        <div id="card-element"></div>
+        
+        <h1>Total a Pagar: R$ {{ total|floatformat:2 }}</h1>
+        <button type="submit" id="submit-button">Pagar</button>
+    </form>
+</div>
 <script>
     // Obtendo o CSRF Token
     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
