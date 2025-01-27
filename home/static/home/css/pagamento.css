@@ -1,0 +1,94 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-right: 0;
+}
+
+.pagamento-main-container{
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    width: 800px;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
+
+}
+
+.formas-de-pagamento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.cartao-de-credito,
+.PIX {
+    border: 1px solid black;   /* Borda para visualização */
+    width: 100%;               /* Largura da div */
+    height: 100px;              /* Defina a altura da div (se necessário) */
+    display: flex;
+    background-color: white;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 30px;
+    
+        
+}
+.cartao-de-credito i,.PIX i{
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.cartao-de-credito h2,.PIX h2{
+    font-size: 20px;
+   
+}
+
+#payment-form {
+    width: 400px;
+    display: none;
+    margin-top: 20px; /* Espaço entre o botão e o formulário */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Quando a classe 'open' for adicionada, ele aparece */
+#payment-form.open {
+    opacity: 1;
+    display: block;
+    transform: translateY(20px); /* Move o formulário para a posição original */
+}
+
+#pix-form {
+    display: none;
+}
+
+#pix-form.open {
+    display: block;
+}
+
+.resumo{
+    display: flex;
+    background-color: white;
+    height: 360px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 5px;
+}
+
+.resumo h1{
+    margin-top: 0;
+    font-size: 25px;
+}
+.resumo h2{
+    margin-top: auto;
+    margin-right: auto;
+    font-size: 17px;
+}
+.resumo i{
+    margin-top: 9px;
+}

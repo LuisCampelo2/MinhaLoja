@@ -13,7 +13,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 @login_required
 @csrf_exempt  # Para permitir requisições POST via fetch
-def create_payment(request):
+def create_payment_card(request):
     if request.method == "POST":
         try:
             import json
@@ -40,7 +40,8 @@ def create_payment(request):
 
 def checkout_view(request):
     # Exemplo de valor total
-    total = 123.45  # O valor do total pode vir do banco de dados ou ser calculado
+    carrinho=Carrinho.objects.get(usuario=request.user)
+    total = carrinho.calcular_total()  # O valor do total pode vir do banco de dados ou ser calculado
     context = {
         'total': total,
         'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY,
