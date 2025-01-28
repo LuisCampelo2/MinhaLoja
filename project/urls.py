@@ -26,6 +26,7 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('pagamento/',include('pagamento.urls')),
     path('admin/', admin.site.urls),
-     path('create_payment/', views.create_payment_card, name='create_payment_card'),
+    path('create_payment/', views.create_payment_card, name='create_payment_card'),
+    path('crete_paymente_pix/',views.create_pix_payment,name='create_payment_pix'),
 ]
 

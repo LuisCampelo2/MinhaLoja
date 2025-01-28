@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartaoDeCredito = document.getElementById('cartao-de-credito');
     const pix = document.getElementById('PIX');
     const formCartaoDeCredito = document.getElementById('payment-form');
-    const formPix = document.getElementById('pix-form');
+    const formPix = document.getElementById('pix-container');
 
     // Função para ocultar todos os formulários
     function hideAllForms() {

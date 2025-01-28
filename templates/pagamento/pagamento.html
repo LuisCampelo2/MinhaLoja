@@ -2,55 +2,64 @@
 {% block search_bar %}{% endblock search_bar %}
 {% block content %}
 
-<h1>Pagamento</h1>
+
 <div class="main-container">
     <div class="pagamento-main-container">
-        <div class="formas-de-pagamento" >
+       
             <div class="cartao-de-credito" id="cartao-de-credito">
                 <i class="fa fa-credit-card"></i><h2>Cartão de crédito</h2>
                 
             </div>
+            <form id="payment-form">
+                {% csrf_token %}
+                <div id="card-element"></div>
+                
+                <button type="submit" id="submit-button">Pagar</button>
+        </form>
             
             <div class="PIX" id="PIX">
                 <i class="fa fa-university"></i>
                 <h2>PIX</h2>
             </div>
-            
+    <div id="pix-container" class="pix-container">
+        <button id="pix-button">Gerar QR Code PIX</button>
+        <div id="pix-result" style="display: none;">
+            <h3>Use o QR Code abaixo para pagar:</h3>
+            <img id="pix-qrcode" alt="QR Code PIX" />
+            <p id="pix-code"></p>
+        </div>
     </div>
 
-    <form id="payment-form">
-            {% csrf_token %}
-            <div id="card-element"></div>
-            
-            <button type="submit" id="submit-button">Pagar</button>
-    </form>
-        
-    <form id="pix-form" class="pix-form">
-        {% csrf_token %}
-        <h1>Pagar com PIX</h1>
-
-        <!-- Seção que será exibida após gerar os detalhes do pagamento -->
-        <div id="pix-payment-details" style="display: none;">
-            <p><strong>Use o código ou o QR Code para realizar o pagamento:</strong></p>
-            
-            <!-- QR Code gerado -->
-            <div id="pix-qrcode"></div>
-            
-            <!-- Instruções ou código PIX -->
-            <p id="pix-instructions"></p>
-        </div>
-
-        <!-- Botão para gerar o QR Code -->
-        <button type="button" id="pix-button">Gerar QR Code para PIX</button>
-    </form>
 </div>
 <div class="resumo">
     <i class="fa fa-list-alt"></i><h1>Resumo</h1>
-    <div style="background-color: greenyellow;  margin-top: auto; max-width: 100%; text-align: center; padding: 2px; border-radius: 3px; ">
-        <h2>Total: R$ {{ total }}</h2>
+    <div class="valor-total">
+        <h2 style="padding: 20px;">Total: R$ {{ total }}</h2>
     </div>
 </div>
 <script>
+    document.getElementById("pix-button").addEventListener("click", function () {
+    fetch("{% url 'create_payment_pix' %}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": "{{ csrf_token }}",
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.qr_code_base64) {
+                // Exibe o QR Code
+                document.getElementById("pix-result").style.display = "block";
+                document.getElementById("pix-qrcode").src = `data:image/png;base64,${data.qr_code_base64}`;
+                document.getElementById("pix-code").textContent = `Código PIX: ${data.qr_code}`;
+            } else {
+                alert("Erro ao gerar o QR Code.");
+            }
+        })
+        .catch(error => console.error("Erro:", error));
+});
+
     // Obtendo o CSRF Token
     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 

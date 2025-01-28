@@ -7,26 +7,22 @@
 
 .pagamento-main-container{
     display: flex;
+    flex-direction: column;
     background-color: white;
     padding: 20px;
     width: 800px;
     border-radius: 10px;
     border: 3px solid black;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.7);
+    gap: 50px;
 
 }
 
-.formas-de-pagamento{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
 
 .cartao-de-credito,
 .PIX {
     border: 1px solid black;   /* Borda para visualização */
-    width: 100%;               /* Largura da div */
+    max-width: 100%;               /* Largura da div */
     height: 100px;              /* Defina a altura da div (se necessário) */
     display: flex;
     background-color: white;
@@ -62,11 +58,11 @@
     transform: translateY(20px); /* Move o formulário para a posição original */
 }
 
-#pix-form {
+#pix-container {
     display: none;
 }
 
-#pix-form.open {
+#pix-container.open {
     display: block;
 }
 
@@ -83,12 +79,39 @@
 .resumo h1{
     margin-top: 0;
     font-size: 25px;
+    height: 2px;
 }
 .resumo h2{
     margin-top: auto;
     margin-right: auto;
     font-size: 17px;
+   
 }
 .resumo i{
     margin-top: 9px;
+    height: 2px;
+}
+.valor-total{
+    background-color: rgba(144, 238, 144, 0.5);
+    margin-top: auto; max-width: 100%; 
+    text-align: center; 
+    padding: 2px; 
+    border-radius: 3px; 
+    max-width: 100%;
+}
+
+#pix-qrcode{
+    width: 200px;
+    height: auto;
+}
+#pix-code{
+    width: 200px;
+    height: auto;
+}
+#pix-button{
+    background-color: rgb(0, 92, 212);
+    border-radius: 5px;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
 }
