@@ -134,10 +134,42 @@ class RegisterUser(forms.ModelForm):
         return username
 
     def clean_cpf(self):
-        cpf = self.cleaned_data.get('cpf')
-        if CustomUser.objects.filter(cpf=cpf).exists():
-            raise ValidationError('Este CPF já está registrado.', code='invalid')
+        cpf = self.cleaned_data.get('cpf')  # Obtém o valor do CPF do formulário
+
+        if not cpf:
+            raise ValidationError("CPF é obrigatório.")  # Caso não tenha CPF, retorna erro
+
+        cpf = cpf.replace('.', '').replace('-', '')  # Remove pontos e traços
+
+        if len(cpf) != 11 or cpf == cpf[0] * 11:  # Verifica se o CPF tem 11 dígitos e não é um CPF repetido
+            raise ValidationError("CPF inválido. O CPF deve ter 11 dígitos e não pode ser um CPF repetido.")
+        
+        # Verifica o primeiro dígito verificador
+        soma = 0
+        for i in range(9):
+            soma += int(cpf[i]) * (10 - i)
+        resto = soma % 11
+        if resto < 2:
+            digito1 = 0
+        else:
+            digito1 = 11 - resto
+        
+        # Verifica o segundo dígito verificador
+        soma = 0
+        for i in range(10):
+            soma += int(cpf[i]) * (11 - i)
+        resto = soma % 11
+        if resto < 2:
+            digito2 = 0
+        else:
+            digito2 = 11 - resto
+        
+        # Verifica se os dois dígitos verificadores são corretos
+        if cpf[-2:] != str(digito1) + str(digito2):
+            raise ValidationError("CPF inválido. Os dígitos verificadores estão incorretos.")
+
         return cpf
+
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
