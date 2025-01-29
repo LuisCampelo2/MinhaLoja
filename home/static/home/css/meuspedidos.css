@@ -1,0 +1,20 @@
+.meuspedidos-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.meuspedidos-main-container table{
+    width: 1000px;
+    height: 60px;
+    text-align: center;
+    border: none;
+    
+}
+.meuspedidos-main-container tr,th,td{
+    border: 2px solid black;
+    border-radius: 3px;
+}
