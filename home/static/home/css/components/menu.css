@@ -8,13 +8,14 @@
 }
 
 .menu-lateral {
+    gap: 30px;
+    padding: 20px;
     position: fixed;
     top: 0;
     left: -300px;
     width: 250px;
     height: 100%;
     background-color: #333;
-    color: white;
     transition: left 0.3s ease;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 1001;
@@ -31,7 +32,7 @@
     list-style-type: none;
 }
 
-.menu-lateral a {
+.navbar-menu{
     margin-bottom: auto;
     display: block;
     text-decoration: none;
@@ -39,16 +40,35 @@
     padding: 15px;
     transition: background-color 0.3s ease;
 }
-
-.menu-lateral a:hover {
-    background-color: #444;
-    color: #fff;
+.nav-authenticated{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1000px;
+    gap: 20px;
+}
+.nav-authenticated a{
+    text-decoration: none;
+    color: white;
 }
 .menu-lateral button{
-    margin-left: 0;
-    width: 0px;
-    background-color: #333;
+    display: flex;
+    width: 8px;
+    height: 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    padding: 10px;
+    cursor: pointer;
 }
+
+.menu-lateral button:hover{
+    color: red;
+}
+
+.menu-lateral a:hover {
+    color: orange;
+}
+
 
 .navbar-menu{
     background-color: blue;

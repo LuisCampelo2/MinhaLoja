@@ -44,6 +44,8 @@
 }
 
 #payment-form {
+    padding: 50px;
+    gap: 70px;
     width: 400px;
     display: none;
     margin-top: 20px; /* Espaço entre o botão e o formulário */
@@ -60,12 +62,19 @@
 
 #pix-container {
     display: none;
+
 }
 
 #pix-container.open {
     display: block;
 }
-
+.pix-elements{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .resumo{
     display: flex;
     background-color: white;
@@ -103,9 +112,10 @@
 #pix-qrcode{
     width: 200px;
     height: auto;
+    
 }
 #pix-code{
-    width: 200px;
+    font-size: 12px;
     height: auto;
 }
 #pix-button{

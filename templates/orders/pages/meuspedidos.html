@@ -1,3 +1,32 @@
 {% extends "home/base.html" %}
 {% block search_bar %}{% endblock search_bar %}
-{% block content %}{% endblock content %}
+{% block content %}
+
+
+
+<div class="meuspedidos-main-container">
+    <h1>Meus Pedidos</h1>
+    {% if pedidos %}
+        <table border="1">
+            <tr>
+                <th>ID do Pagamento</th>
+                <th>Valor</th>
+                <th>Método</th>
+                <th>Data</th>
+                <th>Status</th>
+            </tr>
+            {% for pedido in pedidos %}
+            <tr>
+                <td>{{ pedido.id }}</td>
+                <td>R$ {{ pedido.valor }}</td>
+                <td>{{ pedido.metodo_pagamento }}</td>
+                <td>{{ pedido.data_pagamento|date:"d/m/Y H:i" }}</td>
+                <td><strong style="color: green;">{{ pedido.status }}</strong></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Você ainda não tem pedidos aprovados.</p>
+    {% endif %}
+</div>
+{% endblock content %}

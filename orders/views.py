@@ -5,11 +5,13 @@ from .models import Carrinho,ItemPedido
 from django.http import Http404
 from users.models import CustomUser
 from django.db import IntegrityError
+from pagamento.models import Pagamento
 
 # Create your views here.
 
 def meusPedidos(request):
-    return render(request,'orders/pages/meuspedidos.html')
+    pedidos = Pagamento.objects.filter(usuario=request.user, status='sucesso') 
+    return render(request,'orders/pages/meuspedidos.html',{'pedidos': pedidos})
 
 @login_required
 def adicionar_ao_carrinho(request, produto_id):

@@ -12,8 +12,12 @@
             </div>
             <form id="payment-form">
                 {% csrf_token %}
-                <div id="card-element"></div>
-                
+                <div id="card-element">
+                    <!-- Stripe injects the Card Element here -->
+                </div>
+                {{form.as_p}}
+            
+                <!-- Botão de pagamento -->
                 <button type="submit" id="submit-button">Pagar</button>
             </form>
             
@@ -22,11 +26,13 @@
                 <h2>PIX</h2>
             </div>
     <div id="pix-container" class="pix-container">
-        <button id="pix-button">Gerar QR Code PIX</button>
-        <div id="pix-result" style="display: none;">
-            <h3>Use o QR Code abaixo para pagar:</h3>
-            <img id="pix-qrcode" alt="QR Code PIX" />
-            <p id="pix-code"></p>
+        <div class="pix-elements">
+            <button id="pix-button">Gerar QR Code PIX</button>
+            <div id="pix-result" style="display: none;">
+                <h3>Use o QR Code abaixo para pagar:</h3>
+                <img id="pix-qrcode" alt="QR Code PIX" />
+                <p id="pix-code"></p>
+            </div>
         </div>
     </div>
 
@@ -121,6 +127,7 @@
 
         submitButton.disabled = false; // Habilita o botão novamente
     });
+    
 </script>
 
 {% endblock content %}
