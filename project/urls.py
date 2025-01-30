@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from pagamento import views
+from . import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('',include('home.urls')),
@@ -29,4 +31,6 @@ urlpatterns = [
     path('create_payment/', views.create_payment_card, name='create_payment_card'),
     path('crete_paymente_pix/',views.create_pix_payment,name='create_payment_pix'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

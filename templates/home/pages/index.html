@@ -21,11 +21,12 @@
     <div class="produto-grid">
         {% for produto in produtos %}
         <div class="produto-item">
+            <a href="{% url 'products:produto_view'  produto.id %}" style="text-decoration: none; color: black;">
             <!-- Verificando se a imagem existe, caso contrário coloca uma padrão -->
             <img src="{% if produto.imagem %}{{ produto.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" alt="{{ produto.nome }}">
             <h3>{{ produto.nome }}</h3>
             <p>R$ {{ produto.preco }}</p>
-
+        </a>
             <!-- Link para adicionar o produto ao carrinho -->
             <a href="{% url 'orders:adicionar_ao_carrinho' produto.id %}">
                 <button>Adicionar ao carrinho</button>

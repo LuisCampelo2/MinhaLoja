@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<div class="main-produto">
+    <div style="gap: 10px;">
+        <img class="img-produto" src="{{ produto.imagem.url }}" alt=""> <h3> Quantidade em estoque: {{produto.estoque}}</h3>
+       
+        <a href="{% url 'orders:adicionar_ao_carrinho' produto.id %}">
+            <button>Adicionar ao Carrinho<i class="fas fa-shopping-cart" style="color: white; "></i></button>
+        </a>
+        
+    </div>
+    
+    <div class="informaçoes-produtos">
+        <h1>{{produto.nome}}</h1>
+        <h2> R$ {{produto.preco}}</h2>
+        <div class="descriçao"> 
+            <p>{{produto.descricao|safe}}</p>
+        </div>
+       
+       
+    </div>
+    
+    
+</div>
+{% endblock content %}

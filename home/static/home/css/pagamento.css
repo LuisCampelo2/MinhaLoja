@@ -44,6 +44,7 @@
 }
 
 #payment-form {
+    
     padding: 50px;
     gap: 70px;
     width: 400px;
@@ -57,8 +58,10 @@
 #payment-form.open {
     opacity: 1;
     display: block;
+    gap: 30px;
     transform: translateY(20px); /* Move o formulário para a posição original */
 }
+
 
 #pix-container {
     display: none;
