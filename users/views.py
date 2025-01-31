@@ -4,6 +4,7 @@ from .forms import MyAccountForm,EditMyAccountForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def myaccount(request):
     user=request.user
     form=MyAccountForm(instance=user)

@@ -20,16 +20,23 @@
                 {% for item in carrinho.itempedido_set.all %}
                     <tr>
                         <td>
-                            <img src="{% if item.produto.imagem %}{{ item.produto.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" alt="{{ item.produto.nome }}" class="imagem-produto">
+                            {% with item.produto.imagens.first as imagem %}
+                                <img src="{% if imagem %}{{ imagem.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" 
+                                     alt="{{ item.produto.nome }}" 
+                                     class="imagem-produto">
+                            {% endwith %}
                             {{ item.produto.nome }}
                         </td>
                         <td>R$ {{ item.preco }}</td>
-                        <td>{{item.quantidade}}</td>
+                        <td>{{ item.quantidade }}</td>
                         <td>R$ {{ item.total }}</td>
-                        <td><a href="{% url 'orders:removeritem' item.id %}" class= 'removeritem'>Remover Item</a></td>
+                        <td>
+                            <a href="{% url 'orders:removeritem' item.id %}" class="removeritem">Remover Item</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
+jw            
         </table>
 
         <div class="carrinho-total-container">

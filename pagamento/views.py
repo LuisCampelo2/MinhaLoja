@@ -94,7 +94,7 @@ def create_payment_card(request):
 
 # views.py
 
-
+@login_required
 def checkout_view(request):
     # Exemplo de valor total
     carrinho=Carrinho.objects.get(usuario=request.user)

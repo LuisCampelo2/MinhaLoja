@@ -60,7 +60,7 @@ def carrinho(request):
     }
     return render(request, 'orders/pages/carrinho.html', context)
 
-
+@login_required
 def removeritem(request,id):
    try:
         item_pedido = ItemPedido.objects.get(id=id)

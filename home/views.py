@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from products.models import Produto,ProdutoImagem
 
+
 # Create your views here.
 def index(request):
     produtos = Produto.objects.all()
