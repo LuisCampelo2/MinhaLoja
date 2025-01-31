@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'users',
     'orders',
     'pagamento',
-    'ckeditor',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +153,25 @@ MERCADO_PAGO_TOKEN='TEST-5939857055849376-012110-6cf0ea4bafee4dc12d3213a0c40e9f4
 STRIPE_PUBLISHABLE_KEY="pk_test_51QjiifCGM92qi593TJNdDWCkc0Nwb5VazFeGiM9y079fNqQSOUO51mUxP3hL5S8VWDqI85D6ZY6JtbAX1m0y9FiC006M4ZjzrT"
 
 STRIPE_SECRET_KEY="sk_test_51QjiifCGM92qi593W6ZXXrESXuTiKYSCXIReAZbzaT1iHs1aVeTZJ9l6HVBE77AosloQyklL83R84szo04BEIhkT00eYVBQFPf"
+
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "bold", "italic", "underline", "strike",
+            "|", "heading", "blockquote",
+            "|", "link", "image_upload",
+            "|", "bulletedList", "numberedList",
+            "|", "code", "codeBlock",
+            "|", "undo", "redo"
+        ],
+        "image": {
+            "toolbar": ["imageTextAlternative", "imageStyle:full", "imageStyle:side"]
+        },
+        "table": {
+            "contentToolbar": ["tableColumn", "tableRow", "mergeTableCells"]
+        },
+        "mediaEmbed": {
+            "previewsInData": True
+        },
+    }
+}

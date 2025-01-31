@@ -2,9 +2,35 @@
 {% load static %}
 {% block content %}
 <div class="main-produto">
-    <div style="gap: 10px;">
-        <img class="img-produto" src="{{ produto.imagem.url }}" alt=""> <h3> Quantidade em estoque: {{produto.estoque}}</h3>
-       
+    <div style="gap: 10px; background-color: white; padding: 20px;">
+        <h1>{{produto.nome}}</h1> 
+        <br>
+        <div id="carouselProduto{{ produto.id }}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% if produto.imagens.all %}
+                    {% for imagem in produto.imagens.all %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img style="height: 500px; object-fit: contain" src="{{ imagem.imagem.url }}" class="d-block w-100" alt="{{ produto.nome }}">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Imagem padrão caso o produto não tenha imagens -->
+                    <div class="carousel-item active">
+                        <img src="{% static 'default_product_image.jpg' %}" class="d-block w-100" alt="{{ produto.nome }}">
+                    </div>
+                {% endif %}
+            </div>
+            <!-- Controles do carrossel -->
+            <button style="background: none; " class="carousel-control-prev" type="button" data-bs-target="#carouselProduto{{ produto.id }}" data-bs-slide="prev">
+                <span   style="background-color: black;" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span  class="visually-hidden">Previous</span>
+            </button>
+            <button style="background: none; " class="carousel-control-next" type="button" data-bs-target="#carouselProduto{{ produto.id }}" data-bs-slide="next">
+                <span style="background-color: black;" class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div> Quantidade em estoque: {{produto.estoque}}</h3>
+        <h2> R$ {{produto.preco}}</h2>
         <a href="{% url 'orders:adicionar_ao_carrinho' produto.id %}">
             <button>Adicionar ao Carrinho<i class="fas fa-shopping-cart" style="color: white; "></i></button>
         </a>
@@ -12,15 +38,13 @@
     </div>
     
     <div class="informaçoes-produtos">
-        <h1>{{produto.nome}}</h1>
-        <h2> R$ {{produto.preco}}</h2>
+      
+       
         <div class="descriçao"> 
+            <h1>Descrição do Produto</h1>
             <p>{{produto.descricao|safe}}</p>
-        </div>
-       
-       
     </div>
-    
-    
+
+    </div>
 </div>
 {% endblock content %}

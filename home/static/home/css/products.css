@@ -68,6 +68,7 @@
 
 .main-produto{
     display: flex;
+    flex-direction: column;
     gap: 30px;
     
 }
@@ -83,7 +84,7 @@
 }
 
 .main-produto h2{
-    color: orange;
+    color: black;
     font-size: 50px;
     
 }
@@ -107,4 +108,21 @@
     text-decoration: none;
     width: 200px;
     margin-top: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-produto a:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.informaçoes-produtos{
+    display: flex;
+    gap:200px;
+}
+.descriçao{
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    
 }

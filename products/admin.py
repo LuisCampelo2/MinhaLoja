@@ -1,8 +1,17 @@
 from django.contrib import admin
-from .models import Produto
-# Register your models here.
+from .models import Produto, ProdutoImagem
+
+class ProdutoImagemInline(admin.TabularInline):  # Ou StackedInline para outra visualização
+    model = ProdutoImagem
+    extra = 1  # Quantidade de campos extras para adicionar novas imagens
+
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'preco', 'estoque', 'descricao', 'imagem')
-    search_fields = ('nome', 'descricao')
-    list_filter = ('preco', 'estoque')
+    list_display = ('id', 'nome', 'preco', 'estoque')
+    inlines = [ProdutoImagemInline]  # Adiciona as imagens dentro do Produto no admin
+
+@admin.register(ProdutoImagem)
+class ProdutoImagemAdmin(admin.ModelAdmin):
+    list_display = ('produto', 'imagem')
+
+  

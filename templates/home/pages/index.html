@@ -23,7 +23,7 @@
         <div class="produto-item">
             <a href="{% url 'products:produto_view'  produto.id %}" style="text-decoration: none; color: black;">
             <!-- Verificando se a imagem existe, caso contrário coloca uma padrão -->
-            <img src="{% if produto.imagem %}{{ produto.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" alt="{{ produto.nome }}">
+            <img src="{{ produto.imagens.all.0.imagem.url }}">
             <h3>{{ produto.nome }}</h3>
             <p>R$ {{ produto.preco }}</p>
         </a>
