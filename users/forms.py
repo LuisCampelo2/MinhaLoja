@@ -6,7 +6,7 @@ from users.models import CustomUser
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(
-        label="Nome de usuário ou Email:",
+        label="Nome de usuário:",
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
@@ -31,11 +31,12 @@ class CustomAuthenticationForm(AuthenticationForm):
 
         if username_or_email and password:
             user = authenticate(username=username_or_email, password=password)
+            
+            # Se não autenticou pelo username, tenta pelo email
             if not user:
-                # Verifica se o email foi usado como nome de usuário
                 try:
-                    user = CustomUser.objects.get(email=username_or_email)
-                    user = authenticate(username=user.username, password=password)
+                    user_obj = CustomUser.objects.get(email=username_or_email)
+                    user = authenticate(username=user_obj.username, password=password)  # ⬅️ Aqui estava o erro
                 except CustomUser.DoesNotExist:
                     user = None
 
