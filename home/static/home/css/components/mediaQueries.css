@@ -1,0 +1,50 @@
+/* 🔹 Ajusta para telas menores que 1024px (Laptops) */
+@media (max-width: 1024px) {
+    video {
+        max-width: 700px;
+    }
+    body {
+        font-size: 15px;
+        max-width: 90%; /* Reduz a largura do conteúdo */
+    }
+}
+
+/* 🔹 Ajusta para telas menores que 768px (Tablets) */
+@media (max-width: 768px) {
+    video {
+        max-width: 100%; /* Garante que o vídeo se ajuste */
+    }
+    body {
+        font-size: 14px;
+        max-width: 95%;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column; /* Empilha os elementos verticalmente */
+    }
+
+    header {
+        text-align: center;
+    }
+}
+
+/* 🔹 Ajusta para telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+    body {
+        font-size: 13px;
+    }
+
+    .menu-hamburguer {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .main {
+        padding: 10px;
+    }
+}
