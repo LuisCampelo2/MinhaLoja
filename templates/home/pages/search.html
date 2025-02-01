@@ -1,23 +1,30 @@
 {% extends "home/base.html" %}
-
+{% load static %}
 {% block content %}
 <div class="resultados">
     <h1>Resultados da busca</h1>
 </div>
 {% if resultados %}
-<div class="itens_do_resultado_de_busca">
-    <ul>
-        {% for produto in resultados %}
-            <li>
-                <strong>{{ produto.nome }}</strong> - R$ {{ produto.preco }}
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Nenhum resultado encontrado para "{{ query }}".</p>
-{% endif %}
-    <div class="voltar_pro_index">
-        <a href="{% url 'home:index' %}">Voltar</a>
+
+        <ul>
+            {% for produto in resultados %}
+            <a href="{% url 'products:produto_view'  produto.id %}" style="text-decoration: none; color: black;">
+                <div class="itens_do_resultado_de_busca">
+                <li>
+                    <strong> {% with produto.imagens.first as imagem %}
+                        <img style="height: 80px; width: 80px;" src="{% if imagem %}{{ imagem.imagem.url }}{% else %}{% static 'default_product_image.jpg' %}{% endif %}" 
+                            alt="{{ item.produto.nome }}" 
+                            class="imagem-produto">
+                    {% endwith %}{{ produto.nome }}</strong>  R$ {{ produto.preco }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum resultado encontrado para "{{ query }}".</p>
+    {% endif %}
+        <div class="voltar_pro_index">
+            <a href="{% url 'home:index' %}">Voltar</a>
+        </div>
     </div>
-</div>
+</a>
 {% endblock content %}

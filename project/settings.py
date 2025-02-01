@@ -12,21 +12,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t1wq0i&f4l%-v!ft_c8@^+go=7=b4mt5pl^-sa$-9y2$f1#67c'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG') == 'True'
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 
 # Application definition
@@ -137,22 +132,21 @@ LOGIN_URL = '/authentication/login/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Servidor SMTP do Gmail
-EMAIL_PORT = 587  # Porta segura para envio
-EMAIL_USE_TLS = True  # Usar TLS para criptografia
-EMAIL_HOST_USER = 'luisfilipecab@gmail.com'  # Seu e-mail do Gmail
-EMAIL_HOST_PASSWORD = 'knqx lrih vwda eelt'  # Senha de aplicativo, não a senha da conta Google
-DEFAULT_FROM_EMAIL = 'luisfilipecab@gmail.com'  # O e-mail que aparecerá no "De"
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 
-MERCADO_PAGO_PUBLIC_KEY='TEST-83a007fb-d83d-4830-953a-c57bcf82aec3'
+MERCADO_PAGO_PUBLIC_KEY = os.getenv('MERCADO_PAGO_PUBLIC_KEY')
+MERCADO_PAGO_TOKEN = os.getenv('MERCADO_PAGO_TOKEN')
 
-MERCADO_PAGO_TOKEN='TEST-5939857055849376-012110-6cf0ea4bafee4dc12d3213a0c40e9f4a-1511571029'
-
-STRIPE_PUBLISHABLE_KEY="pk_test_51QjiifCGM92qi593TJNdDWCkc0Nwb5VazFeGiM9y079fNqQSOUO51mUxP3hL5S8VWDqI85D6ZY6JtbAX1m0y9FiC006M4ZjzrT"
-
-STRIPE_SECRET_KEY="sk_test_51QjiifCGM92qi593W6ZXXrESXuTiKYSCXIReAZbzaT1iHs1aVeTZJ9l6HVBE77AosloQyklL83R84szo04BEIhkT00eYVBQFPf"
+# Configuração do Stripe
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 CKEDITOR_5_CONFIGS = {
     "default": {
