@@ -6,6 +6,16 @@
     margin: 0;
     padding: 0;
 }
+@keyframes subir {
+    from {
+        opacity: 0; /* Começa invisível */
+        transform: translateY(30px); /* Desce 30px */
+    }
+    to {
+        opacity: 1; /* Fica visível */
+        transform: translateY(0); /* Volta à posição normal */
+    }
+}
 
 html, body {
     padding-top: 50px; 
@@ -14,9 +24,12 @@ html, body {
     margin: 0; /* Remove margens padrão */
     display: flex;
     flex-direction: column; /* Alinha os elementos em uma coluna */
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+    
 }
 main {
+    animation: subir 0.6s ease-in-out; /* Duração de 0.6s e efeito suave */
     flex: 1; /* Faz o conteúdo crescer para ocupar o espaço disponível */
     padding: 20px;
 }
