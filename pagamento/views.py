@@ -75,10 +75,11 @@ def create_payment_card(request):
                     valor=total,
                     metodo_pagamento='cartao',
                     stripe_payment_intent=response['id'],
-                    status='pendente',
+                    status='sucesso',
                     email=request.user.email,
                 )
-                    
+                
+                Carrinho.objects.filter(usuario=usuario).delete()
             
                     # Retorna o client_secret do PaymentIntent para o frontend
                 return JsonResponse({'client_secret': response['client_secret']})
@@ -89,8 +90,11 @@ def create_payment_card(request):
             # Captura qualquer erro e retorna uma mensagem
             return JsonResponse({'error': str(e)}, status=400)
         
+        
         # Se o método não for POST, retorna erro
     return JsonResponse({'error': 'Método não permitido'}, status=405)
+
+    
 
 # views.py
 
