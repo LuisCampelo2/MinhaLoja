@@ -7,6 +7,13 @@
 </head>
 <body>
     {% include "home/partials/header.html" %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     {% block search_bar %}
     {% include "home/partials/search_bar.html" %}
     {% endblock %}

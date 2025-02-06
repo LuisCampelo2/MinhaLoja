@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def login_view(request):
@@ -36,9 +37,13 @@ def createAccount(request):
             user = form.save(commit=False)  # Cria o usuário sem salvar diretamente.
             user.set_password(form.cleaned_data['password1'])  # Define a senha corretamente.
             user.save()  # Salva o usuário no banco.
+            messages.success(request, "Cadastro realizado com sucesso! Faça login.")
             auth.login(request, user)  # Faz o login automático.
             return redirect('home:index')  
         else:
+            messages.error(request, "Corrija os erros abaixo e tente novamente.")
+            if form.errors:
+                print(form.errors) 
             form = RegisterUser()
         
     context = {

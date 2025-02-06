@@ -6,7 +6,7 @@ from users.models import CustomUser
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(
-        label="Nome de usuário:",
+        label="Nome de usuário ou email:",
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',

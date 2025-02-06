@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
+    
+    email = models.EmailField(unique=True)
+    USERNAME_FIELD = 'email'  # Permite login com e-mail
+    REQUIRED_FIELDS = ['username']  # Username ainda é obrigatório para criação via Django Admin
+    
     cpf = models.CharField(
         max_length=11,
         unique=True,
