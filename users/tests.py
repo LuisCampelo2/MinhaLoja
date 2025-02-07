@@ -23,9 +23,9 @@ time.sleep(1)
 driver.find_element(By.NAME, "password1").send_keys("SenhaForte123")
 time.sleep(1)
 driver.find_element(By.NAME, "password2").send_keys("SenhaForte123")
-time.sleep(1)
-driver.find_element(By.NAME, "cpf").send_keys("123")
-time.sleep(1)
+time.sleep(4)
+driver.find_element(By.NAME, "cpf").send_keys("00956423744")
+time.sleep(4)
 driver.find_element(By.NAME, "telefone").send_keys("(61) 91234-5678")
 time.sleep(1)
 driver.find_element(By.NAME, "data_nascimento").send_keys("01012000")
@@ -34,7 +34,7 @@ time.sleep(1)
 # Submete o formulário
 driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
-time.sleep(60)  # Espera para verificar a resposta
+time.sleep(10)  # Espera para verificar a resposta
 
 # Fecha o navegador
 driver.quit()

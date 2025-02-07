@@ -80,7 +80,8 @@ class RegisterUser(forms.ModelForm):
         }),
     )
     cpf = forms.CharField(
-        max_length=11,
+        min_length=11,
+        max_length=14,
         label='CPF',
         help_text='Insira o CPF com 11 dígitos numéricos',
     )

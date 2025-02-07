@@ -81,30 +81,51 @@ p {
 }
 
 </style>
-<div class="create_user_container">
-    <h2>Criar Conta</h2>
-    <form 
-        class="create_user_form"
-        action="{{ form_action }}"
-        method="POST">
-        {% csrf_token %}
-        <div class="form-columns">
-            {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                    {{field.errors}}
-                </div>
-            {% endfor %}
-        </div>
-        <button class="button" type="submit">Criar Conta</button>
-    </form>
-    <div class="form-actions">
+<form class="create_user_form" action="{{ form_action }}" method="POST" onsubmit="formatCPFBeforeSubmit(event)">
+    {% csrf_token %}
+    <div class="form-columns">
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
 
-        <p>
-            Já tem uma conta? 
-            <a href="{% url 'authentication:login' %}">Login</a>
-        </p>
+                <!-- Exibindo erros se houver -->
+                {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                            <li class="error-message">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
     </div>
-</div>
+    <button class="button" type="submit">Criar Conta</button>
+</form>
+
+<script>
+    // Função para formatar o CPF enquanto o usuário digita
+    function formatCPF(cpfField) {
+        let cpf = cpfField.value.replace(/\D/g, ''); // Remove tudo que não for número
+        if (cpf.length <= 11) {
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o primeiro ponto
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o segundo ponto
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o traço
+        }
+        cpfField.value = cpf; // Atualiza o campo com o CPF formatado
+    }
+
+    // Função para remover a formatação do CPF antes de enviar o formulário
+    function formatCPFBeforeSubmit(event) {
+        const cpfField = document.getElementById('id_cpf');  // Aqui, você deve garantir que o ID do campo seja 'id_cpf'
+        let cpf = cpfField.value.replace(/\D/g, ''); // Remove formatação (pontos e traços)
+        cpfField.value = cpf; // Atualiza o valor do campo antes de enviar
+    }
+
+    // Adiciona o evento para formatar o CPF enquanto o usuário digita
+    document.getElementById('id_cpf').addEventListener('input', function() {
+        formatCPF(this);
+    });
+</script>
+
 {% endblock content %}
