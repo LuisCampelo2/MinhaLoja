@@ -78,10 +78,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ecommerce',
+        'USER': 'luisf',
+        'PASSWORD': '123456LFta*',
+        'HOST': 'localhost',  # ou o IP do servidor se for em outro lugar
+        'PORT': '5432',  # A porta padrão do PostgreSQL
     }
 }
+
 
 
 # Password validation
@@ -101,9 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
 AUTHENTICATION_BACKENDS = [
     'users.authentication_backends.EmailOrUsernameBackend',  
-    
 ]
 
 
