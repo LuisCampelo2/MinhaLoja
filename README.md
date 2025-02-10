@@ -15,10 +15,13 @@ Siga os passos abaixo para rodar o projeto em seu ambiente local,Rode esses coma
 
 **Crie um ambiente virtual python (opcional,porém recomendado)**
 python -m venv venv
+
 **Ative seu ambinete virtual**
 source venv/bin/activate  # no Windows use venv\Scripts\activate
+
 **Instale as dependências**
 pip install -r requirements.txt
+
 **Rode o servidor**
 python manage.py runserver
 
