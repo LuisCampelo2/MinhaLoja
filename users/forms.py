@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 from users.models import CustomUser
-
+from .authentication_backends import validar_cpf
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(
         label="Nome de usuário ou email:",
@@ -70,7 +70,6 @@ class RegisterUser(forms.ModelForm):
         label="Senha:",
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Digite sua senha'
         }),
     )
     password2 = forms.CharField(
@@ -80,8 +79,11 @@ class RegisterUser(forms.ModelForm):
         }),
     )
     cpf = forms.CharField(
+        max_length=14,  # Considerando a máscara xxx.xxx.xxx-xx
+        required=True,
+        validators=[validar_cpf],
+        widget=forms.TextInput(attrs={'placeholder': 'XXX.XXX.XXX-XX'}),
         min_length=11,
-        max_length=14,
         label='CPF',
         help_text='Insira o CPF com 11 dígitos numéricos',
     )
@@ -142,34 +144,6 @@ class RegisterUser(forms.ModelForm):
             raise ValidationError("CPF é obrigatório.")  # Caso não tenha CPF, retorna erro
 
         cpf = cpf.replace('.', '').replace('-', '')  # Remove pontos e traços
-
-        if len(cpf) != 11 or cpf == cpf[0] * 11:  # Verifica se o CPF tem 11 dígitos e não é um CPF repetido
-            raise ValidationError("CPF inválido. O CPF deve ter 11 dígitos e não pode ser um CPF repetido.")
-        
-        # Verifica o primeiro dígito verificador
-        soma = 0
-        for i in range(9):
-            soma += int(cpf[i]) * (10 - i)
-        resto = soma % 11
-        if resto < 2:
-            digito1 = 0
-        else:
-            digito1 = 11 - resto
-        
-        # Verifica o segundo dígito verificador
-        soma = 0
-        for i in range(10):
-            soma += int(cpf[i]) * (11 - i)
-        resto = soma % 11
-        if resto < 2:
-            digito2 = 0
-        else:
-            digito2 = 11 - resto
-        
-        # Verifica se os dois dígitos verificadores são corretos
-        if cpf[-2:] != str(digito1) + str(digito2):
-            raise ValidationError("CPF inválido. Os dígitos verificadores estão incorretos.")
-
         return cpf
 
 

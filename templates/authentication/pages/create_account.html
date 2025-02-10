@@ -101,7 +101,9 @@ p {
         {% endfor %}
     </div>
     <button class="button" type="submit">Criar Conta</button>
+    <a  href="{% url "authentication:login" %}">Já tenho conta</a>
 </form>
+
 
 <script>
     // Função para formatar o CPF enquanto o usuário digita
