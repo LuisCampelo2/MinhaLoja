@@ -1,18 +1,5 @@
 [
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2025-02-10T06:45:32.143Z",
-    "user": 2,
-    "content_type": 6,
-    "object_id": "1",
-    "object_repr": "Console PlayStation 5 Slim Sony, SSD 1TB, Edição Digital, Com Controle Sem Fio DualSense, Branco + 2 Jogos Digitais - 1000038914",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"produto imagem\", \"object\": \"Imagem de Console PlayStation 5 Slim Sony, SSD 1TB, Edi\\u00e7\\u00e3o Digital, Com Controle Sem Fio DualSense, Branco + 2 Jogos Digitais - 1000038914\"}}, {\"added\": {\"name\": \"produto imagem\", \"object\": \"Imagem de Console PlayStation 5 Slim Sony, SSD 1TB, Edi\\u00e7\\u00e3o Digital, Com Controle Sem Fio DualSense, Branco + 2 Jogos Digitais - 1000038914\"}}, {\"added\": {\"name\": \"produto imagem\", \"object\": \"Imagem de Console PlayStation 5 Slim Sony, SSD 1TB, Edi\\u00e7\\u00e3o Digital, Com Controle Sem Fio DualSense, Branco + 2 Jogos Digitais - 1000038914\"}}]"
-  }
-},
-{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -494,80 +481,6 @@
   "fields": {
     "app_label": "pagamento",
     "model": "pagamento"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "tbl47csxmjc4vzunl6kd8vmoftinapd9",
-  "fields": {
-    "session_data": ".eJxVjMsKwjAURP8laylJ-sitS8G1K9fl9j5o0EZo2pX47zagoMuZM3OeZsBtnYYtyzJENkfjzeG3G5FukgooMVeFSFoj4Rof6YtzdZ4x3i_LdR8lnOX0uf25JszTLqptTarceHVAgRtnAwXbak0CfkQHHjUISuiZO4euBeqdQsehAeBezesNJEk9Pw:1thNWx:OEgr5sZ_xO7zu1RuYkH0YNQaFOelFCxQOiPZD5ntuUk",
-    "expire_date": "2025-02-24T06:44:31.339Z"
-  }
-},
-{
-  "model": "products.produto",
-  "pk": 1,
-  "fields": {
-    "nome": "Console PlayStation 5 Slim Sony, SSD 1TB, Edição Digital, Com Controle Sem Fio DualSense, Branco + 2 Jogos Digitais - 1000038914",
-    "descricao": "<p>so testando</p>",
-    "preco": "3000.00",
-    "estoque": 3,
-    "categoria": "eletronicos"
-  }
-},
-{
-  "model": "products.produtoimagem",
-  "pk": 1,
-  "fields": {
-    "produto": 1,
-    "imagem": "produtos/console-ps5-slim-fisico-1tb-c-returnal-ratchet-clank-sony-2.webp"
-  }
-},
-{
-  "model": "products.produtoimagem",
-  "pk": 2,
-  "fields": {
-    "produto": 1,
-    "imagem": "produtos/outro-controle-ps5.jpeg"
-  }
-},
-{
-  "model": "products.produtoimagem",
-  "pk": 3,
-  "fields": {
-    "produto": 1,
-    "imagem": "produtos/controle-ps5.jpeg"
-  }
-},
-{
-  "model": "users.customuser",
-  "pk": 2,
-  "fields": {
-    "password": "pbkdf2_sha256$870000$MYpSeXof4QS8I2b9sN6R7v$O07+W3DEhq84oxp1Yo4+K7+fNX2C0F4Yp3mJclLjz7Q=",
-    "last_login": "2025-02-10T06:44:31.335Z",
-    "is_superuser": true,
-    "username": "luisf",
-    "first_name": "",
-    "last_name": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2025-02-10T06:43:55.933Z",
-    "email": "luisfilipecab@gmail.com",
-    "cpf": "",
-    "telefone": null,
-    "data_nascimento": null,
-    "genero": "N",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "orders.carrinho",
-  "pk": 1,
-  "fields": {
-    "usuario": 2,
-    "data_criacao": "2025-02-10T08:10:10.232Z",
-    "total": "0.00"
   }
 }
 ]
