@@ -43,6 +43,10 @@ pip install -r requirements.txt
 
 mv .env-example .env
 
+**Aplique migraçoes no banco de dados**
+
+python manage.py migrate
+
 **Rode o servidor**
 
 python manage.py runserver
