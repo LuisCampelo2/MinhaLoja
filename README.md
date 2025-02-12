@@ -7,7 +7,8 @@ Este é um projeto de e-commerce desenvolvido em Django. Ele permite que os usu�
 Antes de começar, você precisará de algumas dependências:
 
 - [Python](https://www.python.org/downloads/) 3.x
-- [Git](https://git-scm.com/) (opcional, para clonar o repositório)
+- [Git](https://git-scm.com/) (opcional, para clonar o repositório pelo terminal)
+- [GitDesktop](https://desktop.github.com/download/)
 
 ## Como rodar o projeto localmente
 
@@ -18,7 +19,12 @@ Siga os passos abaixo para rodar o projeto em seu ambiente local,Rode esses coma
 git clone https://github.com/LuisCampelo2/MinhaLoja
 cd MinhaLoja
 
-Ou cole esse link https://github.com/LuisCampelo2/MinhaLoja no navegador e clique neste botao ![Descrição da imagem](img-git/cloneGit.png)
+Ou, se preferir, acesse o [repositório no GitHub](https://github.com/LuisCampelo2/MinhaLoja) e clique no botão "Clone", como mostrado na imagem abaixo:
+
+
+![Descrição da imagem](img-git/cloneGit.png)
+
+Após clicar em "Open with GitHub Desktop", você poderá abrir o projeto diretamente no GitHub Desktop.
 
 
 **Crie um ambiente virtual python (opcional,porém recomendado)**
@@ -27,7 +33,7 @@ python -m venv venv
 
 **Ative seu ambinete virtual**
 
-source venv/bin/activate  # no Windows use venv\Scripts\activate
+.venv\Scripts\activate
 
 **Instale as dependências**
 
@@ -36,7 +42,6 @@ pip install -r requirements.txt
 **Mude o nome do arquivo .env-example para .env e preencha as informções**
 
 mv .env-example .env
-
 
 **Rode o servidor**
 
