@@ -68,7 +68,7 @@
 .carrinho-total button:hover{
     background-color: orangered;
 }
-/* Estilo do carrinho vazio */
+
 p {
     text-align: center;
     font-size: 18px;
@@ -76,7 +76,6 @@ p {
     margin-top: 40px;
 }
 
-/* Estilo da linha da tabela */
 tr:hover {
     background-color: #f9f9f9;
 }

@@ -21,9 +21,9 @@
 
 .cartao-de-credito,
 .PIX {
-    border: 1px solid black;   /* Borda para visualização */
-    max-width: 100%;               /* Largura da div */
-    height: 100px;              /* Defina a altura da div (se necessário) */
+    border: 1px solid black;  
+    max-width: 100%;               
+    height: 100px;              
     display: flex;
     background-color: white;
     align-items: center;
@@ -49,17 +49,16 @@
     gap: 70px;
     width: 400px;
     display: none;
-    margin-top: 20px; /* Espaço entre o botão e o formulário */
+    margin-top: 20px; 
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Quando a classe 'open' for adicionada, ele aparece */
 #payment-form.open {
     opacity: 1;
     display: block;
     gap: 30px;
-    transform: translateY(20px); /* Move o formulário para a posição original */
+    transform: translateY(20px); 
 }
 
 

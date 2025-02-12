@@ -1,4 +1,4 @@
-/* Produtos */
+
 .produtos {
     padding: 40px 20px;
     background-color: #fff;
@@ -29,7 +29,7 @@
 }
 
 .produto-item:hover {
-    transform: translateY(-10px); /* Eleva o item ao passar o mouse */
+    transform: translateY(-10px); 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -59,11 +59,11 @@
 
 .produto-item button:hover {
     background-color: #0084b4;
-    transform: scale(1.05); /* Leve aumento do botão */
+    transform: scale(1.05);
 }
 
 .produto-item button:active {
-    transform: scale(1); /* Retorna ao normal quando clicado */
+    transform: scale(1); 
 }
 
 .main-produto{
