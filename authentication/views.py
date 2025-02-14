@@ -20,7 +20,7 @@ def login_view(request):
             auth.login(request, user)
             return redirect('home:index')
             
-        
+        messages.error(request, "Erro no login. Verifique suas credenciais.")
     context = {
         'form': form,
         'form_action': form_action

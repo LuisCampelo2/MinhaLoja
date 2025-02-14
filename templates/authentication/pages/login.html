@@ -8,11 +8,12 @@
     action="{{form_action}}"
     method="POST"
     >
+ 
         {% csrf_token %}
         {% for field in form %}
             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             {{ field }}
-            {{form.non_field_errors}}
+    
         {% endfor %}
 
         <button type="submit">entrar</button> 

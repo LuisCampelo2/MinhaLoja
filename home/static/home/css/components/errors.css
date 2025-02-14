@@ -1,0 +1,28 @@
+.messages {
+    background-color: rgba(244, 67, 54, 0.8); /* Vermelho com 80% de opacidade */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    width: 300px;
+    border: solid 2px black;
+    margin: auto;
+    
+
+}
+
+.messages li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+}
+
+.messages li.error {
+    background-color: #f44336; /* Vermelho para erros */
+}
+
+.messages li.success {
+    background-color: #4caf50; /* Verde para sucesso */
+}

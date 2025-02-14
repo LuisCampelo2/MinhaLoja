@@ -6,14 +6,17 @@
     {% include "home/partials/head.html" %}
 </head>
 <body>
-    {% include "home/partials/header.html" %}
-    {% if messages %}
-        <ul>
+    <div style="padding: 20px;"> 
+        {% if messages %}
+        <ul class="messages">
             {% for message in messages %}
                 <li>{{ message }}</li>
             {% endfor %}
         </ul>
+    </div>
+   
     {% endif %}
+    {% include "home/partials/header.html" %}
     {% block search_bar %}
     {% include "home/partials/search_bar.html" %}
     {% endblock %}
